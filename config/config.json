@@ -2,14 +2,14 @@
   "development": {
     "username": "jand",
     "password": "jandpass",
-    "database": "exampledb",
+    "database": "mishmash",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "jand",
     "password": "jandpass",
-    "database": "testdb",
+    "database": "mishmash",
     "host": "localhost",
     "dialect": "mysql",
     "logging": false
