@@ -2,7 +2,11 @@
 module.exports = function(sequelize, DataTypes) {
   var Favorites = sequelize.define("Favorites", {
     spoonacularId: DataTypes.INTEGER,
-    user: DataTypes.STRING
+    user: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      len: [1]
+    }
   });
 
   Favorites.associate = function(models) {
