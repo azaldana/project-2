@@ -155,3 +155,15 @@ function clickSearch() {
 }
 
 clickSearch();
+
+$('#modal-login').click((event) => {
+    $('#search').modal();
+    $('#login').modal();
+    $('#login').modal('open');
+})
+
+$('#modal-signup').click((event) => {
+    $('#search').modal();
+    $('#signup').modal();
+    $('#signup').modal('open');
+})
