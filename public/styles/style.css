@@ -1,0 +1,287 @@
+/* Main Image and Navigation */
+
+header {
+    background: url("../images/background_black.jpg");
+    background-size: cover;
+    background-position: center;
+    min-height: 750px;
+}
+
+#top-logo {
+    margin: 0 auto;
+}
+
+.center-align {
+    margin-top: 200px;
+}
+
+.login, .signup, .fridge, .favorites  {
+    border: 1px solid #fff;
+    border-radius: 120px;  
+    height: 30px;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 12px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.nav-wrapper li {
+    margin-right: 10px;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+/* About Section */
+
+.about {
+    text-align: center;
+}
+
+.about-content {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.about h2 {
+    text-transform: uppercase;
+    font-size: 50px;
+    margin-top: 100px;
+    font-weight: bold;
+    font-family: 'Rajdhani', sans-serif;
+    text-align: center;
+}
+
+/* Refrigerator Section */
+
+.category {
+    width: 70%;
+    margin: 0 auto;
+    padding-bottom: 100px;
+}
+
+.subhead {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 25px;
+}
+
+.buttons {
+    text-align: center;
+}
+
+.dairyBtn, .meatBtn, .veggieBtn, .pantryBtn, .seafoodBtn, .fruitBtn {
+    text-align: center !important;
+    border: none;
+    background-color: transparent;
+}
+
+.dairyBtn:focus, .meatBtn:focus, .veggieBtn:focus, .pantryBtn:focus, .seafoodBtn:focus, .fruitBtn:focus {
+    background-color: transparent;
+    border: 1px solid #FFAB00;
+}
+
+.category-content {
+    background-color: #f9f9f9;
+    margin-top: 10px;
+}
+
+.category h2 {
+    text-transform: uppercase;
+    font-size: 50px;
+    margin-top: 100px;
+    font-weight: bold;
+    font-family: 'Rajdhani', sans-serif;
+    text-align: center;
+    padding-top: 100px;
+}
+
+.types {
+    font-family: 'Rajdhani', sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.add {
+    width: 10%;
+}
+
+#submit {
+    border: 1px solid #FFAB00;
+    background-color: transparent;
+    color: black;
+}
+
+#submit:hover {
+    /* border: 1px solid #FFAB00; */
+    background-color: #FFAB00;
+    color: white;
+}
+
+#addition {
+    background-color: #FFAB00;
+    color: white;
+}
+
+#addition:hover {
+    background-color: #FECF0C;
+    color: white;
+}
+
+.social {
+    background-color: #FFAB00;
+}
+
+[type="checkbox"]:checked+span:not(.lever):before {
+    border-top: 2px solid transparent;
+    border-left: 2px solid transparent;
+    border-right: 2px solid #ffab00;
+    border-bottom: 2px solid #ffab00;
+
+}
+
+/* Recipe Section */
+
+.recipe-content {
+    text-align: center;
+}
+
+.recipe-content .card-content {
+    text-align: left;
+}
+
+.recipes {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.recipes h2 {
+    text-transform: uppercase;
+    font-size: 50px;
+    margin-top: 100px;
+    font-weight: bold;
+    font-family: 'Rajdhani', sans-serif;
+    text-align: center;
+}
+
+/* Recipe Full Page */
+
+#recipePageIcon {
+    margin-left: 50px;
+    margin-top: 10px;
+}
+
+.recipePage {
+    border-bottom: 1px solid #FFAB00;
+}
+
+.loginRec, .signupRec, .fridgeRec, .favoritesRec  {
+    /* border: 1px solid #FECF0C; */
+    border-radius: 120px;  
+    height: 30px;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 12px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.recipeSection, .listSection {
+    font-weight: bold;
+    font-family: 'Rajdhani', sans-serif;
+    margin-top: 50px;
+}
+
+.listSection {
+    margin-top: 75px;
+    margin-left: 500px;
+    border-right: 1px solid #FFAB00;
+    height: 100%;
+}
+
+.something {
+    margin-left: 50px;
+}
+
+#favorite {
+    margin-left: 50px;
+    border: 1px solid #FFAB00;
+    background-color: transparent;
+    color: black;
+} 
+
+#favorite:hover {
+    /* border: 1px solid #FFAB00; */
+    background-color: #FFAB00;
+    color: white;
+}
+
+/* Favorite Section Full Page */
+
+.favoriteSection {
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 100px;
+}
+
+.favoriteSection h2 {
+    font-family: 'Rajdhani', sans-serif;
+    margin-top: 75px;
+}
+
+/* Modal Pop Up Windows */
+
+.modal-content h2 {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 30px;
+}
+
+/* Footer Bar */
+
+.footer {
+    background-color: #fff;
+    position: absolute;
+    width: 100% !important;
+    right: 0;
+    left: 0;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: bold;
+    border-top: 1px solid #FFAB00;
+}
+
+#social li {
+  display: inline;
+  margin-left: 10px;
+}
+
+/* button {
+    border: 1 !important;
+    border-color: #FECF0C;
+} */
+
+#email {
+    width: 65%;
+}
+#password {
+    width: 65%;
+}
+
+.modal-close.btn.amber.accent-4 {
+    margin-left: 30px;
+    margin-bottom: 30px;
+}
+/* button.dairyBtn {
+    background-color: black;
+} */
+.checkbox-orange[type="checkbox"].filled-in:checked + label:after{
+    border: 2px solid #ff9800;
+    background-color: white;
+}
+
+footer .container {
+    width: 90%;
+    right: 0;
+}
