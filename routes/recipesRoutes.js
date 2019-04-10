@@ -3,10 +3,10 @@ var db = require("../models");
 
 module.exports = function(app) {
   // Find recipe in database
-  app.get("/api/recipe/:id", function(req, res) {
+  app.get("/api/recipe/:spoon", function(req, res) {
     db.Recipe.findAll({
       where: {
-        id: req.params.id
+        spoonacularId: req.params.spoon
       }
     }).then(function(dbRecipe) {
       res.json(dbRecipe);
