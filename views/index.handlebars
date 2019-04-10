@@ -1,33 +1,1688 @@
-<div id="home">
-  <div class="container">
+<!-- NavBar Section -->
+<header>
+  <nav class="nav-wrapper transparent z-depth-0">
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+
+      {{!-- When Login Button or Sign Up button is pressed, the data goes to the database and the header then shows the "Fridge", "Favorites" and "Log Out" Buttons --}}
+
+      <li><a href="#login" class="white-text login valign-wrapper modal-trigger">Log In</a></li>
+      <li><a href="#signup" class="white-text signup valign-wrapper modal-trigger">Sign Up</a></li>
+      <li><a href="#" class="white-text fridge valign-wrapper">Fridge</a></li>
+      <li><a href="#" class="white-text favorites valign-wrapper">Favorites</a></li>
+      <li><a href="#" class="white-text logout valign-wrapper">Log Out</a></li>
+      <li><a href="#" class="white-text valign-wrapper"></a></li>
+    </ul>
+  </nav>
+
+  <!-- Background Image in Header -->
+
+  <div class="center-align">
+    <img src="assets/images/mish-mash-white.png" width="500" alt="Logo" id="top-logo">
+  </div>
+</header>
+
+<!-- Modal PopUp Section -->
+
+{{!-- This is the section that contains the IDs for the "login" and "signup" prompts --}}
+
+<div class="modal modal1" id="login">
+  <div class="modal-content">
+    <h2>Existing Users Sign In</h2>
     <div class="row">
-      <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <h2>This is our Home Page!</h2>
-        <form class="clearfix mb-4" action="POST">
-          <div class="form-group">
-            <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">email_circle</i>
+            <input id="email" type="email" class="validate">
+            <label for="email">Email</label>
           </div>
-          <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">lock</i>
+            <input id="password" type="password" class="validate">
+            <label for="password">Password</label>
           </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
-        </form>
-        <h3>Examples:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="left-align" id="modal-footer">
+    {{!-- When the "login" button is clicked the information is added to the database --}}
+    <a href="#" class="modal-close btn amber accent-4">Log In</a>
+  </div>
+</div>
+
+<div class="modal modal2" id="signup">
+  <div class="modal-content">
+    <h2>Sign Up</h2>
+    <div class="row">
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s6">
+            <i class="material-icons prefix">account_circle</i>
+            <input id="first_name" type="text" class="validate">
+            <label for="first_name">First Name</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="last_name" type="text" class="validate">
+            <label for="last_name">Last Name</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">email_circle</i>
+            <input id="email" type="email" class="validate">
+            <label for="email">Email</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">lock</i>
+            <input id="password" type="password" class="validate">
+            <label for="password">Password</label>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="left-align" id="modal-footer">
+    {{!-- When the "sign up" button is clicked the information is added to the database --}}
+    <a href="#" class="modal-close btn amber accent-4">Sign Up</a>
+  </div>
+</div>
+
+<div class="modal modal3" id="search">
+  <div class="modal-content">
+    <h2>Let's Add These to Your Fridge!</h2>
+    <h6>By signing in, your Fridge's ingredients are saved for future visits.</h6>
+  </div>
+
+  <div class="left-align" id="modal-footer">
+    {{!-- When the login or sign up buttons are clicked, the modals from above should populate --}}
+    <a href="#" class="modal-close btn amber accent-4">Log In!</a>
+    <a href="#" class="modal-close btn amber accent-4">Sign Up!</a>
+  </div>
+</div>
+
+{{!-- Nothing needs to happen with the about information --}}
+
+<div class="about-content">
+  <div class="about">
+    <h2>About</h2>
+    <img src="assets/images/mish-mash-icon-yellow-new.png" width="50" alt="Icon" id="icon">
+    <br><br>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi saepe vitae similique eos. Temporibus, non!
+      Facere fugit provident illum delectus corporis quasi, ipsa voluptatem aperiam dolorum veniam corrupti
+      fugiat nostrum.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi saepe vitae similique eos. Temporibus, non!
+      Facere fugit provident illum delectus corporis quasi, ipsa voluptatem aperiam dolorum veniam corrupti
+      fugiat nostrum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi reiciendis dolorum est
+      laborum soluta porro, iste ab ad quis necessitatibus culpa, odit vero voluptatum. Corporis asperiores
+      aliquam obcaecati magnam quis?</p>
+  </div>
+</div>
+<br>
+
+<!-- Categories Section -->
+
+<div class="category-content">
+  <div class="category">
+    <h2>refrigerator</h2>
+    <div class="row about buttons">
+      <img src="assets/images/mish-mash-icon-yellow-new.png" width="50" alt="Icon" id="icon">
+      <br><br><br><br>
+
+      <p class="subhead">Please choose a category below to view a list of ingredients to add to your fridge
+      </p><br><br><br>
+
+      {{!-- When the separate category buttons are clicked, their choices need to appear, but the options need to stay during a full user experience, right now if you go to a separate page and then come back to home, the ingredients selected will be refreshed --}}
+      <div class="col s12 l2">
+        <button class="dairyBtn">
+          <img src="assets/images/icon_milk.png" width="35">
+        </button>
+        <p class="types">Dairy</p>
       </div>
+      <div class="col s12 l2">
+        <button class="meatBtn">
+          <img src="assets/images/icon_meat.png" width="35">
+        </button>
+        <p class="types">Meats</p>
+      </div>
+      <div class="col s12 l2">
+        <button class="veggieBtn">
+          <img src="assets/images/icon_carrot.png" width="35">
+        </button>
+        <p class="types">Veggies</p>
+      </div>
+      <div class="col s12 l2">
+        <button class="pantryBtn">
+          <img src="assets/images/icon_bread.png" width="35">
+        </button>
+        <p class="types">Pantry</p>
+      </div>
+
+      <div class="col s12 l2">
+        <button class="seafoodBtn">
+          <img src="assets/images/icon_fish.png" width="35">
+        </button>
+        <p class="types">Seafood</p>
+      </div>
+
+      <div class="col s12 l2">
+        <button class="fruitBtn">
+          <img src="assets/images/icon_apple.png" width="35">
+        </button>
+        <p class="types">Fruits</p>
+      </div>
+    </div>
+
+
+    <br><br>
+
+    <!-- Dairy Checkboxes Section -->
+    <div class="dairy">
+      <div class="row">
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Eggs</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Butter</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Milk</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Yogurt</span>
+              </label>
+            </p>
+          </form>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Sour Cream</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Custard</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Cottage Cheese</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Cream Cheese</span>
+              </label>
+            </p>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Whipped Cream</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Creamer</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Cheddar Cheese</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Mozzarella Cheese</span>
+              </label>
+            </p>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Swiss Cheese</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Provologne Cheese</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>American Cheese</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Brie Cheese</span>
+              </label>
+            </p>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Ice Cream</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="input-field col s12 l4">
+          {{!-- When a user types in a new ingredient and presses the + button, it needs to be added to the list with a check mark checked --}}
+
+          <input placeholder="Name of Ingredient" id="first_name" type="text" class="validate">
+          <label for="first_name">Add Additional Ingredient</label>
+        </div>
+        <div class="input-field col s12 l2">
+          <a class="btn-floating btn-small waves-effect waves-light z-depth-0" id="addition"><i
+              class="material-icons add">add</i></a>
+        </div>
+      </div>
+      {{!-- When the "search" button is clicked, the list of first 6 recipes needs to appear below --}}
+      <button class="btn waves-effect waves-light submit modal-trigger z-depth-0" a href="#search" id="submit"
+        type="submit" name="action">Search for Recipes
+        <i class="material-icons right">send</i>
+      </button></a>
+    </div>
+
+    <!-- Meat Checkboxes Section -->
+    <div class="meat">
+      <div class="row">
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Bacon</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Sausage</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Chorizo</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Hot Dogs</span>
+              </label>
+            </p>
+          </form>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Hot Links</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Chicken</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Boneless Chicken</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Deli meats</span>
+              </label>
+            </p>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Turkey</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Ground Turkey</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Ham</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Salami</span>
+              </label>
+            </p>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Porkchops</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Lamb</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Steak</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Ground Beef</span>
+              </label>
+            </p>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Jerky</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="input-field col s12 l4">
+          {{!-- When a user types in a new ingredient and presses the + button, it needs to be added to the list with a check mark checked --}}
+          <input placeholder="Name of Ingredient" id="first_name" type="text" class="validate">
+          <label for="first_name">Add Additional Ingredient</label>
+        </div>
+        <div class="input-field col s12 l2">
+          <a class="btn-floating btn-small waves-effect waves-light z-depth-0" id="addition"><i
+              class="material-icons add">add</i></a>
+        </div>
+      </div>
+      {{!-- When the "search" button is clicked, the list of first 6 recipes needs to appear below --}}
+      <button class="btn waves-effect waves-light submit modal-trigger z-depth-0" a href="#search" id="submit"
+        type="submit" name="action">Search for Recipes
+        <i class="material-icons right">send</i>
+      </button></a>
+    </div>
+
+    <!-- Veggie Checkboxes Section -->
+    <div class="veggies">
+      <div class="row">
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Broccoli</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Brussel Sprouts</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Cauliflower</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Carrots</span>
+              </label>
+            </p>
+          </form>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Kale</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Lettuce</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Spinach</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Celery</span>
+              </label>
+            </p>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Avocado</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Bellpeppers</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Corn</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Onions</span>
+              </label>
+            </p>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Potatoes</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Sweet Potatoes</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Onions</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Squash</span>
+              </label>
+            </p>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Zucchini</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="input-field col s12 l4">
+          {{!-- When a user types in a new ingredient and presses the + button, it needs to be added to the list with a check mark checked --}}
+          <input placeholder="Name of Ingredient" id="first_name" type="text" class="validate">
+          <label for="first_name">Add Additional Ingredient</label>
+        </div>
+        <div class="input-field col s12 l2">
+          <a class="btn-floating btn-small waves-effect waves-light z-depth-0" id="addition"><i
+              class="material-icons add">add</i></a>
+        </div>
+      </div>
+      {{!-- When the "search" button is clicked, the list of first 6 recipes needs to appear below --}}
+      <button class="btn waves-effect waves-light submit modal-trigger z-depth-0" a href="#search" id="submit"
+        type="submit" name="action">Search for Recipes
+        <i class="material-icons right">send</i>
+      </button></a>
+    </div>
+
+    <!-- Pantry Checkboxes Section -->
+    <div class="pantry">
+      <div class="row">
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Pasta</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Cereal</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Almonds</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Cashews</span>
+              </label>
+            </p>
+          </form>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Pistachio</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Peanuts</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Beans</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Rice</span>
+              </label>
+            </p>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Spices</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Sauces</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Peanut Butter</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Syrup</span>
+              </label>
+            </p>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Cooking Oil</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Salt</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Sugar</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Chips</span>
+              </label>
+            </p>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Bread</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="input-field col s12 l4">
+          {{!-- When a user types in a new ingredient and presses the + button, it needs to be added to the list with a check mark checked --}}
+          <input placeholder="Ingredient" id="first_name" type="text" class="validate">
+          <label for="first_name">Add Additional Ingredient</label>
+        </div>
+        <div class="input-field col s12 l2">
+          <a class="btn-floating btn-small waves-effect waves-light z-depth-0" id="addition"><i
+              class="material-icons add">add</i></a>
+        </div>
+      </div>
+      {{!-- When the "search" button is clicked, the list of first 6 recipes needs to appear below --}}
+      <button class="btn waves-effect waves-light submit modal-trigger z-depth-0" a href="#search" id="submit"
+        type="submit" name="action">Search for Recipes
+        <i class="material-icons right">send</i>
+      </button></a>
+    </div>
+
+    <!-- Seafood Checkboxes Section -->
+    <div class="seafood">
+      <div class="row">
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Shrimp</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Scallops</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Clams</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Mussels</span>
+              </label>
+            </p>
+          </form>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Squid</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Crawfish</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Crab</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Lobster</span>
+              </label>
+            </p>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Catfish</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Cod</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Mahi Mahi</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Salmon</span>
+              </label>
+            </p>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Tilapia</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Trout</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Sardines</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Anchovies</span>
+              </label>
+            </p>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Tuna</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="input-field col s12 l4">
+          {{!-- When a user types in a new ingredient and presses the + button, it needs to be added to the list with a check mark checked --}}
+          <input placeholder="Name of Ingredient" id="first_name" type="text" class="validate">
+          <label for="first_name">Add Additional Ingredient</label>
+        </div>
+        <div class="input-field col s12 l2">
+          <a class="btn-floating btn-small waves-effect waves-light z-depth-0" id="addition"><i
+              class="material-icons add">add</i></a>
+        </div>
+      </div>
+      {{!-- When the "search" button is clicked, the list of first 6 recipes needs to appear below --}}
+      <button class="btn waves-effect waves-light submit modal-trigger z-depth-0" a href="#search" id="submit"
+        type="submit" name="action">Search for Recipes
+        <i class="material-icons right">send</i>
+      </button></a>
+    </div>
+
+    <!-- Fruit Checkboxes Section -->
+    <div class="fruit">
+      <div class="row">
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Apple</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Banana</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Orange</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Grapes</span>
+              </label>
+            </p>
+          </form>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Blackberries</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Blueberries</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Raspberries</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Strawberries</span>
+              </label>
+            </p>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Peach</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Pear</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Plum</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Pineapple</span>
+              </label>
+            </p>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Kiwi</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Mango</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Mandarin Orange</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Dates</span>
+              </label>
+            </p>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 l3">
+          <form action="#">
+            <p>
+              <label>
+                {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
+                <input type="checkbox" />
+                <span>Cherries</span>
+              </label>
+            </p>
+          </form>
+        </div>
+        <div class="input-field col s12 l4">
+          {{!-- When a user types in a new ingredient and presses the + button, it needs to be added to the list with a check mark checked --}}
+          <input placeholder="Name of Ingredient" id="first_name" type="text" class="validate">
+          <label for="first_name">Add Additional Ingredient</label>
+        </div>
+        <div class="input-field col s12 l2">
+          <a class="btn-floating btn-small waves-effect waves-light z-depth-0" id="addition"><i
+              class="material-icons add">add</i></a>
+        </div>
+      </div>
+      {{!-- When the "search" button is clicked, the list of first 6 recipes needs to appear below --}}
+      <button class="btn waves-effect waves-light submit modal-trigger z-depth-0" a href="#search" id="submit"
+        type="submit" name="action">Search for Recipes
+        <i class="material-icons right">send</i>
+      </button></a>
+
     </div>
   </div>
 </div>
 
+{{!-- Items in green below need to be connected with the API. This is the recipe section on the main page --}}
+
+<div class="recipe-content">
+  <div class="recipes">
+    <h2>Recipes</h2>
+    <img src="assets/images/mish-mash-icon-yellow-new.png" width="50" alt="Icon" id="recipeIcon">
+    <br><br><br>
+    <div class="row">
+      <div class="col s12 l4">
+        <div class="card">
+          <div class="card-image">
+            {{!-- Image needs to be grabbed by the API --}}
+            <img src="assets/images/curry.jpg" alt="">
+            <a href="" class="halfway-fab btn-floating pink pulse">
+              <i class="material-icons">favorite</i>
+            </a>
+          </div>
+          <div class="card-content">
+            {{!-- Recipe Name needs to be pulled from the API --}}
+            <span class="card-title">Mango Chicken Curry</span>
+            {{!-- Missing Ingredients needs to be grabbed by the API --}}
+            <p>Missing Ingredients:
+              blah,
+              blah,
+              blah</p>
+          </div>
+          <div class="card-action">
+            <a href="" class="blue-grey-text text-lighten-1">Save</a>
+            {{!-- This will go to the Recipe Page with the a href being "/recipe" --}}
+            <a href="recipe.html" class="blue-grey-text text-lighten-1">View Recipe</a>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 l4">
+          <div class="card">
+            <div class="card-image">
+              {{!-- Image needs to be grabbed by the API --}}
+              <img src="assets/images/pasta.jpg" alt="">
+            </div>
+            <div class="card-content">
+              {{!-- Recipe Name needs to be pulled from the API --}}
+              <span class="card-title">Rainbow Pasta Salad</span>
+              {{!-- Missing Ingredients needs to be grabbed by the API --}}
+              <p>Missing Ingredients:
+                blah,
+                blah,
+                blah</p>
+            </div>
+            <div class="card-action">
+              <a href="" class="blue-grey-text text-lighten-1">Save</a>
+              {{!-- This will go to the Recipe Page with the a href being "/recipe" --}}
+              <a href="recipe.html" class="blue-grey-text text-lighten-1">View Recipe</a>
+            </div>
+          </div>
+        </div>
+        <div class="col s12 l4">
+          <div class="card">
+            <div class="card-image">
+              {{!-- Image needs to be grabbed by the API --}}
+              <img src="assets/images/curry.jpg" alt="">
+              <a href="" class="halfway-fab btn-floating pink pulse">
+                <i class="material-icons">favorite</i>
+              </a>
+            </div>
+            <div class="card-content">
+              {{!-- Recipe Name needs to be pulled from the API --}}
+              <span class="card-title">Spicy Lamb Curry</span>
+              {{!-- Missing Ingredients needs to be grabbed by the API --}}
+              <p>Missing Ingredients:
+                blah,
+                blah,
+                blah</p>
+            </div>
+            <div class="card-action">
+              <a href="" class="blue-grey-text text-lighten-1">Save</a>
+              {{!-- This will go to the Recipe Page with the a href being "/recipe" --}}
+              <a href="recipe.html" class="blue-grey-text text-lighten-1">View Recipe</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col s12 l4">
+          <div class="card">
+            <div class="card-image">
+              {{!-- Image needs to be grabbed by the API --}}
+              <img src="assets/images/curry.jpg" alt="">
+              <a href="" class="halfway-fab btn-floating pink pulse">
+                <i class="material-icons">favorite</i>
+              </a>
+            </div>
+            <div class="card-content">
+              {{!-- Recipe Name needs to be pulled from the API --}}
+              <span class="card-title">Mango Chicken Curry</span>
+              {{!-- Missing Ingredients needs to be grabbed by the API --}}
+              <p>Missing Ingredients:
+                blah,
+                blah,
+                blah</p>
+            </div>
+            <div class="card-action">
+              <a href="" class="blue-grey-text text-lighten-1">Save</a>
+              {{!-- This will go to the Recipe Page with the a href being "/recipe" --}}
+              <a href="recipe.html" class="blue-grey-text text-lighten-1">View Recipe</a>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12 l4">
+            <div class="card">
+              <div class="card-image">
+                {{!-- Image needs to be grabbed by the API --}}
+                <img src="assets/images/pasta.jpg" alt="">
+              </div>
+              <div class="card-content">
+                {{!-- Recipe Name needs to be pulled from the API --}}
+                <span class="card-title">Rainbow Pasta Salad</span>
+                {{!-- Missing Ingredients needs to be grabbed by the API --}}
+                <p>Missing Ingredients:
+                  blah,
+                  blah,
+                  blah</p>
+              </div>
+              <div class="card-action">
+                <a href="" class="blue-grey-text text-lighten-1">Save</a>
+                {{!-- This will go to the Recipe Page with the a href being "/recipe" --}}
+                <a href="recipe.html" class="blue-grey-text text-lighten-1">View Recipe</a>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 l4">
+            <div class="card">
+              <div class="card-image">
+                {{!-- Image needs to be grabbed by the API --}}
+                <img src="assets/images/curry.jpg" alt="">
+                <a href="" class="halfway-fab btn-floating pink pulse">
+                  <i class="material-icons">favorite</i>
+                </a>
+              </div>
+              <div class="card-content">
+                {{!-- Recipe Name needs to be pulled from the API --}}
+                <span class="card-title">Spicy Lamb Curry</span>
+                {{!-- Missing Ingredients needs to be grabbed by the API --}}
+                <p>Missing Ingredients:
+                  blah,
+                  blah,
+                  blah</p>
+              </div>
+              <div class="card-action">
+                <a href="" class="blue-grey-text text-lighten-1">Save</a>
+                {{!-- This will go to the Recipe Page with the a href being "/recipe" --}}
+                <a href="recipe.html" class="blue-grey-text text-lighten-1">View Recipe</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {{!-- The next 6 results pulled from the API will be shown once the "submit" button is clicked --}}
+      <button class="btn waves-effect waves-light z-depth-0" id="submit" type="submit" name="action">See More
+        Results
+        <i class="material-icons right">send</i>
+      </button>
+    </div>
+  </div>
+</div>
+
+{{!-- Nothing needs to happen with the footer below --}}
+
+<footer class="page-footer footer">
+  <div class="container">
+    <div class="row">
+      <div class="col l9 s12">
+        <img src="assets/images/mish-mash-logo.png" width="125" alt="Icon" id="footerIcon">
+      </div>
+      <div class="col l3 s12 valign-wrapper" id="social">
+        <ul>
+          <li><a href="#" class="btn-floating btn-small social" data-position="bottom" data-tooltip="Instagram">
+              <i class="fab fa-instagram"></i></a></li>
+          <li><a href="#" class="btn-floating btn-small social" data-position="bottom" data-tooltip="Facebook">
+              <i class="fab fa-facebook"></i></a></li>
+          <li><a href="#" class="btn-floating btn-small social" data-position="bottom" data-tooltip="Pinterest">
+              <i class="fab fa-pinterest"></i></a></li>
+          <li><a href="#" class="btn-floating btn-small social" data-position="bottom" data-tooltip="Twitter">
+              <i class="fab fa-twitter"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
+<!-- Compiled and minified JavaScript -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="assets/js/app.js"></script>
