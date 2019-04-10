@@ -9,11 +9,10 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Recipes.associate = function(models) {
-    Recipes.belongsTo(models.Ingredients, {
-      foreignKey: {
-        allowNull: false
-      }
+    Recipes.hasMany(models.Ingredients, {
+      onDelete: "cascade"
     });
   };
+
   return Recipes;
 };
