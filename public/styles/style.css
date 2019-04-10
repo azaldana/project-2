@@ -1,7 +1,7 @@
 /* Main Image and Navigation */
 
 header {
-    background: url("../images/background_black.jpg");
+    background: url("/images/background_black.jpg");
     background-size: cover;
     background-position: center;
     min-height: 750px;
