@@ -262,9 +262,14 @@ main {
     border-color: #FECF0C;
 } */
 
+#user_name {
+    width: 65%;
+}
+
 #email {
     width: 65%;
 }
+
 #password {
     width: 65%;
 }
@@ -273,9 +278,7 @@ main {
     margin-left: 30px;
     margin-bottom: 30px;
 }
-/* button.dairyBtn {
-    background-color: black;
-} */
+
 .checkbox-orange[type="checkbox"].filled-in:checked + label:after{
     border: 2px solid #ff9800;
     background-color: white;
