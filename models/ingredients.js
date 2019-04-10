@@ -8,15 +8,18 @@ module.exports = function(sequelize, DataTypes) {
         len: [1]
       }
     },
-    user: {
-      type: DataTypes.STRING,
+    originalString: {
+      type: DataTypes.STRING
+    },
+    recipe: {
+      type: DataTypes.INTEGER,
       allowNull: false,
       len: [1]
     }
   });
 
   Ingredients.associate = function(models) {
-    Ingredients.belongsTo(models.User, {
+    Ingredients.belongsTo(models.Recipes, {
       foreignKey: {
         allowNull: false
       }
