@@ -5,6 +5,7 @@ var pantryPage = $(".pantry");
 var seafoodPage = $(".seafood");
 var fruitPage = $(".fruit");
 var recipesPage = $(".recipe-content");
+var submit = $(".submit");
 
 function homePage() {
     dairyPage.hide();
@@ -14,6 +15,7 @@ function homePage() {
     seafoodPage.hide();
     fruitPage.hide();
     recipesPage.hide();
+    submit.hide();
 }
 
 homePage();
@@ -29,6 +31,7 @@ function dairy() {
         seafoodPage.hide();
         fruitPage.hide();
         recipesPage.hide();
+        submit.show();
     })
 }
 dairy();
@@ -44,6 +47,7 @@ function meat() {
         seafoodPage.hide();
         fruitPage.hide();
         recipesPage.hide();
+        submit.show();
     })
 }
 meat();
@@ -59,6 +63,7 @@ function veggie() {
         seafoodPage.hide();
         fruitPage.hide();
         recipesPage.hide();
+        submit.show();
     })
 }
 veggie();
@@ -74,6 +79,7 @@ function pantry() {
         seafoodPage.hide();
         fruitPage.hide();
         recipesPage.hide();
+        submit.show();
     })
 }
 pantry();
@@ -89,6 +95,7 @@ function seafood() {
         seafoodPage.show();
         fruitPage.hide();
         recipesPage.hide();
+        submit.show();
     })
 }
 seafood();
@@ -104,44 +111,45 @@ function fruits() {
         seafoodPage.hide();
         fruitPage.show();
         recipesPage.hide();
+        submit.show();
     })
 }
 fruits();
 
-function findRecipes(){
+function findRecipes() {
     var submitClicked = $("#submit");
 
-    submitClicked.on('click', function(){
+    submitClicked.on('click', function () {
         recipesPage.show();
     })
 }
 
 findRecipes();
 
-function login(){
+function login() {
     var loginClicked = $(".login");
 
-    loginClicked.on('click', function(){
+    loginClicked.on('click', function () {
         $(".modal1").modal();
     })
 }
 
 login();
 
-function signup(){
+function signup() {
     var signupClicked = $(".signup");
 
-    signupClicked.on('click', function(){
+    signupClicked.on('click', function () {
         $(".modal2").modal();
     })
 }
 
 signup();
 
-function clickSearch(){
+function clickSearch() {
     var searchClicked = $(".submit");
 
-    searchClicked.on('click', function(){
+    searchClicked.on('click', function () {
         $(".modal3").modal();
     })
 }
