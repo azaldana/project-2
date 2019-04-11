@@ -92,6 +92,11 @@ input[type=text]:not(.browser-default):focus:not([readonly])+label{
     color: #FFAB00;
 }
 
+input.valid[type=text]:not(.browser-default){
+    border-bottom: 1px solid #FFAB00;
+    box-shadow: none;
+}
+
 .category-content {
     background-color: #f9f9f9;
     margin-top: 10px;
