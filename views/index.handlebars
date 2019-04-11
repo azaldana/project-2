@@ -9,7 +9,7 @@
       <li><a href="#login" class="white-text login valign-wrapper modal-trigger">Log In</a></li>
       <li><a href="#signup" class="white-text signup valign-wrapper modal-trigger">Sign Up</a></li>
       <li><a href="#" class="white-text fridge valign-wrapper">Fridge</a></li>
-      <li><a href="#" class="white-text favorites valign-wrapper">Favorites</a></li>
+      <li><a href="/favorites" class="white-text favorites valign-wrapper">Favorites</a></li>
       {{!-- <li><a href="#" class="white-text logout valign-wrapper">Log Out</a></li> --}}
       <li><a href="#" class="white-text valign-wrapper"></a></li>
     </ul>
@@ -385,19 +385,14 @@
         <div class="input-field col s12 l4">
           {{!-- When a user types in a new ingredient and presses the + button, it needs to be added to the list with a check mark checked --}}
 
-          <input placeholder="Name of Ingredient" id="first_name" type="text" class="validate">
-          <label for="first_name">Add Additional Ingredient</label>
+          <input placeholder="Name of Ingredient" id="ingredient" type="text" class="validate">
+          <label for="ingredient">Add Additional Ingredient</label>
         </div>
         <div class="input-field col s12 l2">
           <a class="btn-floating btn-small waves-effect waves-light z-depth-0" id="addition"><i
               class="material-icons add">add</i></a>
         </div>
       </div>
-      {{!-- When the "search" button is clicked, the list of first 6 recipes needs to appear below --}}
-      {{!-- <button class="btn waves-effect waves-light submit modal-trigger z-depth-0" a href="#search" id="submit"
-        type="submit" name="action">Search for Recipes
-        <i class="material-icons right">send</i>
-      </button></a> --}}
     </div>
 
     <!-- Meat Checkboxes Section -->
@@ -601,19 +596,14 @@
         </div>
         <div class="input-field col s12 l4">
           {{!-- When a user types in a new ingredient and presses the + button, it needs to be added to the list with a check mark checked --}}
-          <input placeholder="Name of Ingredient" id="first_name" type="text" class="validate">
-          <label for="first_name">Add Additional Ingredient</label>
+          <input placeholder="Name of Ingredient" id="ingredient" type="text" class="validate">
+          <label for="ingredient">Add Additional Ingredient</label>
         </div>
         <div class="input-field col s12 l2">
           <a class="btn-floating btn-small waves-effect waves-light z-depth-0" id="addition"><i
               class="material-icons add">add</i></a>
         </div>
       </div>
-      {{!-- When the "search" button is clicked, the list of first 6 recipes needs to appear below --}}
-      {{!-- <button class="btn waves-effect waves-light submit modal-trigger z-depth-0" a href="#search" id="submit"
-        type="submit" name="action">Search for Recipes
-        <i class="material-icons right">send</i>
-      </button></a> --}}
     </div>
 
     <!-- Veggie Checkboxes Section -->
@@ -817,19 +807,14 @@
         </div>
         <div class="input-field col s12 l4">
           {{!-- When a user types in a new ingredient and presses the + button, it needs to be added to the list with a check mark checked --}}
-          <input placeholder="Name of Ingredient" id="first_name" type="text" class="validate">
-          <label for="first_name">Add Additional Ingredient</label>
+          <input placeholder="Name of Ingredient" id="ingredient" type="text" class="validate">
+          <label for="ingredient">Add Additional Ingredient</label>
         </div>
         <div class="input-field col s12 l2">
           <a class="btn-floating btn-small waves-effect waves-light z-depth-0" id="addition"><i
               class="material-icons add">add</i></a>
         </div>
       </div>
-      {{!-- When the "search" button is clicked, the list of first 6 recipes needs to appear below --}}
-      {{!-- <button class="btn waves-effect waves-light submit modal-trigger z-depth-0" a href="#search" id="submit"
-        type="submit" name="action">Search for Recipes
-        <i class="material-icons right">send</i>
-      </button></a> --}}
     </div>
 
     <!-- Pantry Checkboxes Section -->
@@ -1033,19 +1018,14 @@
         </div>
         <div class="input-field col s12 l4">
           {{!-- When a user types in a new ingredient and presses the + button, it needs to be added to the list with a check mark checked --}}
-          <input placeholder="Ingredient" id="first_name" type="text" class="validate">
-          <label for="first_name">Add Additional Ingredient</label>
+          <input placeholder="Name of Ingredient" id="ingredient" type="text" class="validate">
+          <label for="ingredient">Add Additional Ingredient</label>
         </div>
         <div class="input-field col s12 l2">
           <a class="btn-floating btn-small waves-effect waves-light z-depth-0" id="addition"><i
               class="material-icons add">add</i></a>
         </div>
       </div>
-      {{!-- When the "search" button is clicked, the list of first 6 recipes needs to appear below --}}
-      {{!-- <button class="btn waves-effect waves-light submit modal-trigger z-depth-0" a href="#search" id="submit"
-        type="submit" name="action">Search for Recipes
-        <i class="material-icons right">send</i>
-      </button></a> --}}
     </div>
 
     <!-- Seafood Checkboxes Section -->
@@ -1249,19 +1229,14 @@
         </div>
         <div class="input-field col s12 l4">
           {{!-- When a user types in a new ingredient and presses the + button, it needs to be added to the list with a check mark checked --}}
-          <input placeholder="Name of Ingredient" id="first_name" type="text" class="validate">
-          <label for="first_name">Add Additional Ingredient</label>
+          <input placeholder="Name of Ingredient" id="ingredient" type="text" class="validate">
+          <label for="ingredient">Add Additional Ingredient</label>
         </div>
         <div class="input-field col s12 l2">
           <a class="btn-floating btn-small waves-effect waves-light z-depth-0" id="addition"><i
               class="material-icons add">add</i></a>
         </div>
       </div>
-      {{!-- When the "search" button is clicked, the list of first 6 recipes needs to appear below --}}
-      {{!-- <button class="btn waves-effect waves-light submit modal-trigger z-depth-0" a href="#search" id="submit"
-        type="submit" name="action">Search for Recipes
-        <i class="material-icons right">send</i>
-      </button></a> --}}
     </div>
 
     <!-- Fruit Checkboxes Section -->
@@ -1465,21 +1440,16 @@
         </div>
         <div class="input-field col s12 l4">
           {{!-- When a user types in a new ingredient and presses the + button, it needs to be added to the list with a check mark checked --}}
-          <input placeholder="Name of Ingredient" id="first_name" type="text" class="validate">
-          <label for="first_name">Add Additional Ingredient</label>
+          <input placeholder="Name of Ingredient" id="ingredient" type="text" class="validate">
+          <label for="ingredient">Add Additional Ingredient</label>
         </div>
         <div class="input-field col s12 l2">
           <a class="btn-floating btn-small waves-effect waves-light z-depth-0" id="addition"><i
               class="material-icons add">add</i></a>
         </div>
       </div>
-      {{!-- When the "search" button is clicked, the list of first 6 recipes needs to appear below --}}
-      {{!-- <button class="btn waves-effect waves-light submit modal-trigger z-depth-0" a href="#search" id="submit"
-        type="submit" name="action">Search for Recipes
-        <i class="material-icons right">send</i>
-      </button></a> --}}
-
     </div>
+    {{!-- When the "search" button is clicked, the list of first 6 recipes needs to appear below --}}
     <button class="btn waves-effect waves-light submit modal-trigger z-depth-0" a href="#search" id="submit"
       type="submit" name="action">Search for Recipes
       <i class="material-icons right">send</i>
@@ -1516,7 +1486,7 @@
           <div class="card-action">
             <a href="" class="blue-grey-text text-lighten-1">Save</a>
             {{!-- This will go to the Recipe Page with the a href being "/recipe" --}}
-            <a href="recipe.html" class="blue-grey-text text-lighten-1">View Recipe</a>
+            <a href="/recipe" class="blue-grey-text text-lighten-1">View Recipe</a>
           </div>
         </div>
       </div>
@@ -1539,7 +1509,7 @@
             <div class="card-action">
               <a href="" class="blue-grey-text text-lighten-1">Save</a>
               {{!-- This will go to the Recipe Page with the a href being "/recipe" --}}
-              <a href="recipe.html" class="blue-grey-text text-lighten-1">View Recipe</a>
+              <a href="/recipe" class="blue-grey-text text-lighten-1">View Recipe</a>
             </div>
           </div>
         </div>
@@ -1564,7 +1534,7 @@
             <div class="card-action">
               <a href="" class="blue-grey-text text-lighten-1">Save</a>
               {{!-- This will go to the Recipe Page with the a href being "/recipe" --}}
-              <a href="recipe.html" class="blue-grey-text text-lighten-1">View Recipe</a>
+              <a href="/recipe" class="blue-grey-text text-lighten-1">View Recipe</a>
             </div>
           </div>
         </div>
@@ -1593,7 +1563,7 @@
             <div class="card-action">
               <a href="" class="blue-grey-text text-lighten-1">Save</a>
               {{!-- This will go to the Recipe Page with the a href being "/recipe" --}}
-              <a href="recipe.html" class="blue-grey-text text-lighten-1">View Recipe</a>
+              <a href="/recipe" class="blue-grey-text text-lighten-1">View Recipe</a>
             </div>
           </div>
         </div>
@@ -1616,7 +1586,7 @@
               <div class="card-action">
                 <a href="" class="blue-grey-text text-lighten-1">Save</a>
                 {{!-- This will go to the Recipe Page with the a href being "/recipe" --}}
-                <a href="recipe.html" class="blue-grey-text text-lighten-1">View Recipe</a>
+                <a href="/recipe" class="blue-grey-text text-lighten-1">View Recipe</a>
               </div>
             </div>
           </div>
@@ -1641,7 +1611,7 @@
               <div class="card-action">
                 <a href="" class="blue-grey-text text-lighten-1">Save</a>
                 {{!-- This will go to the Recipe Page with the a href being "/recipe" --}}
-                <a href="recipe.html" class="blue-grey-text text-lighten-1">View Recipe</a>
+                <a href="/recipe" class="blue-grey-text text-lighten-1">View Recipe</a>
               </div>
             </div>
           </div>
@@ -1649,7 +1619,7 @@
       </div>
 
       {{!-- The next 6 results pulled from the API will be shown once the "submit" button is clicked --}}
-      <button class="btn waves-effect waves-light z-depth-0" id="submit" type="submit" name="action">See More
+      <button class="btn waves-effect waves-light z-depth-0" id="seeMore" type="submit" name="action">See More
         Results
         <i class="material-icons right">send</i>
       </button>
