@@ -1,24 +1,73 @@
+// What happens when you first get to the page
+// Create temp user
+// User post
+// Set user variable to whatever the temp
+// If POST returns id, take it, else GET
+
+// What happens when you submit sign up
+// Create permanent user
+// Create object from the user input (name password)
+// User POST with object
+// Set user variable to whatever the temp
+// If POST returns id, take it, else GET
+
+// What happens when you submit log in
+// Create object from user input (name password)
+// User GET with that object based on object.name
+// if user.password =  object.password
+// Verified!
+// Set user variable to user user.id
+// GET fridge based on id
+// Set all the ingredients to their fridge values
+// Else: user or password incorrect
+
+// What happens when you check on an ingredient
+// GET Fridge to see if the object exists
+// if it doesn't, POST fridge
+// else nothing:
+// then make the check checked
+
+// What happens when you uncheck an ingredient
+// GET fridge to see if it exists
+// if it does, DELETE fridge
+// Else nothing
+// trhen make it unchecked
+
+// What happens when you search for an ingredient
+// Search for ingrediten in auto-complete
+// If options exist
+// present the options
+// else we could nt find your ingedient
+
+// What happens when you search for recipes by ingredient
+// get from fridge
+// use the response that you get from that to construct an array
+// Put it in the query url
+// get them results.
+
 // Get references to page elements
-var $exampleText = $("#example-text");
-var $exampleDescription = $("#example-description");
-var $submitBtn = $("#submit");
-var $exampleList = $("#example-list");
+// var $exampleText = $("#example-text");
+// var $exampleDescription = $("#example-description");
+// var $submitBtn = $("#submit");
+// var $exampleList = $("#example-list");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveExample: function(example) {
+  createUser: function(userObj) {
     return $.ajax({
-      headers: {
-        "Content-Type": "application/json"
-      },
       type: "POST",
-      url: "api/examples",
-      data: JSON.stringify(example)
+      url: "/api/user",
+      data: userObj,
+      success: function(response) {
+        localStorage.clear();
+        localStorage.setItem("userId", response.id);
+        // GET fridges
+      }
     });
   },
-  getExamples: function() {
+  getUser: function(userName) {
     return $.ajax({
-      url: "api/examples",
+      url: "api/user/" + userName,
       type: "GET"
     });
   },
@@ -97,3 +146,12 @@ var handleDeleteBtnClick = function() {
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
+
+console.log(localStorage.getItem("userId"));
+if (localStorage.getItem("userId") === null) {
+  var tempUser = {
+    name: "temp",
+    password: ""
+  };
+  API.createUser(tempUser);
+}
