@@ -83,6 +83,15 @@ main {
     border: 1px solid #FFAB00;
 }
 
+input[type=text]:not(.browser-default):focus:not([readonly]){
+    border-bottom: 1px solid #FFAB00;
+    box-shadow: none;
+}
+
+input[type=text]:not(.browser-default):focus:not([readonly])+label{
+    color: #FFAB00;
+}
+
 .category-content {
     background-color: #f9f9f9;
     margin-top: 10px;
@@ -164,6 +173,19 @@ main {
     font-weight: bold;
     font-family: 'Rajdhani', sans-serif;
     text-align: center;
+}
+
+#seeMore {
+    border: 1px solid #FFAB00;
+    background-color: transparent;
+    color: black;
+    margin-bottom: 100px;
+}
+
+#seeMore:hover {
+    /* border: 1px solid #FFAB00; */
+    background-color: #FFAB00;
+    color: white;
 }
 
 /* Recipe Full Page */
