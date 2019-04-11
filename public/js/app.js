@@ -167,3 +167,14 @@ $('#modal-signup').click((event) => {
     $('#signup').modal();
     $('#signup').modal('open');
 })
+
+$("#addition").on("click", function(event){
+    event.preventDefault();
+    var input = $("#ingredient").val().trim();
+
+})
+
+function renderIngredient(){
+    var newIngredient = $("<form>");
+    // newIngredient.
+}
