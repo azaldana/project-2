@@ -1,3 +1,4 @@
+var userId;
 // What happens when you first get to the page
 // Create temp user
 // User post
@@ -61,20 +62,83 @@ var API = {
       success: function(response) {
         localStorage.clear();
         localStorage.setItem("userId", response.id);
+        userId = localStorage.getItem("userId");
+        console.log(userId);
         // GET fridges
       }
     });
   },
   getUser: function(userName) {
     return $.ajax({
-      url: "api/user/" + userName,
-      type: "GET"
+      url: "/api/user/" + userName,
+      type: "GET",
+      success: function(res) {
+        console.log(res);
+      }
     });
   },
-  deleteExample: function(id) {
+
+  getFridge: function(userId) {
     return $.ajax({
-      url: "api/examples/" + id,
-      type: "DELETE"
+      url: "/api/fridge/" + userId,
+      type: "GET",
+      success: function(response) {
+        // check the necessary boxes
+        console.log(response);
+      }
+    });
+  },
+  addToFridge: function(fridgeObj) {
+    return $.ajax({
+      url: "/api/fridge",
+      type: "POST",
+      data: fridgeObj,
+      success: function(response) {
+        // Make the box checked
+        console.log(response);
+      }
+    });
+  },
+  deleteFromFridge: function(fridgeId) {
+    return $.ajax({
+      url: "/api/fridge/" + fridgeId,
+      type: "DELETE",
+      success: function(response) {
+        // Uncheck the box?
+        console.log(response);
+      }
+    });
+  },
+
+  getFavorites: function(userId) {
+    return $.ajax({
+      url: "/api/favorites/" + userId,
+      type: "GET",
+      success: function(response) {
+        // create array of favorites
+        console.log(response);
+      }
+    });
+  },
+  addToFavorites: function(favoritesObj) {
+    return $.ajax({
+      url: "/api/favorites",
+      type: "POST",
+      data: favoritesObj,
+      success: function(response) {
+        // Check heart
+        console.log(response);
+      }
+    });
+  },
+  deleteFromFavorites: function(favoritesId) {
+    return $.ajax({
+      url: "/api/fridge/" + favoritesId,
+      type: "DELETE",
+      success: function(response) {
+        // Uncheck the box?
+        console.log(response);
+      }
     });
   }
 };
@@ -144,8 +208,8 @@ var handleDeleteBtnClick = function() {
 };
 
 // Add event listeners to the submit and delete buttons
-$submitBtn.on("click", handleFormSubmit);
-$exampleList.on("click", ".delete", handleDeleteBtnClick);
+// $submitBtn.on("click", handleFormSubmit);
+// $exampleList.on("click", ".delete", handleDeleteBtnClick);
 
 console.log(localStorage.getItem("userId"));
 if (localStorage.getItem("userId") === null) {
@@ -154,4 +218,20 @@ if (localStorage.getItem("userId") === null) {
     password: ""
   };
   API.createUser(tempUser);
+} else {
+  userId = localStorage.getItem("userId");
+  API.getFridge(userId);
 }
+
+$("#signUpSubmit").on("submit", function(event) {
+  event.preventDefault();
+  var signUp = {
+    text: $exampleText.val().trim(),
+    description: $exampleDescription.val().trim()
+  };
+
+  if (!(example.text && example.description)) {
+    alert("You must enter an example text and description!");
+    return;
+  }
+});
