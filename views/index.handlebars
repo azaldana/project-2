@@ -196,7 +196,7 @@
 
     <!-- Dairy Checkboxes Section -->
     <div class="dairy">
-      <div class="row">
+      <div id="ingred-menu" class="row">
         <div class="col s12 l3">
           <form action="#">
             <p>
@@ -241,9 +241,9 @@
             </p>
           </form>
         </div>
-      </div>
+      {{!-- </div> --}}
 
-      <div class="row">
+      {{!-- <div class="row"> --}}
         <div class="col s12 l3">
           <form action="#">
             <p>
@@ -288,8 +288,9 @@
             </p>
           </form>
         </div>
-      </div>
-      <div class="row">
+      {{!-- </div> --}}
+
+      {{!-- <div class="row"> --}}
         <div class="col s12 l3">
           <form action="#">
             <p>
@@ -334,8 +335,9 @@
             </p>
           </form>
         </div>
-      </div>
-      <div class="row">
+      {{!-- </div> --}}
+
+      {{!-- <div class="row"> --}}
         <div class="col s12 l3">
           <form action="#">
             <p>
@@ -380,8 +382,9 @@
             </p>
           </form>
         </div>
-      </div>
-      <div class="row">
+      {{!-- </div> --}}
+
+      {{!-- <div class="row"> --}}
         <div class="col s12 l3">
           <form action="#">
             <p>
@@ -393,15 +396,19 @@
             </p>
           </form>
         </div>
-        <div class="input-field col s12 l4">
+
+        {{!-- <div class="prepend-here"></div> --}}
+
+        <div class="add-ingred input-field col s12 l4">
           {{!-- When a user types in a new ingredient and presses the + button, it needs to be added to the list with a check mark checked --}}
 
-          <input placeholder="Name of Ingredient" id="ingredient" type="text" class="validate">
+          <input placeholder="Name of Ingredient" id="dairy-ingredient" type="text" class="validate">
           <label for="ingredient">Add Additional Ingredient</label>
         </div>
-        <div class="input-field col s12 l2">
-          <a class="btn-floating btn-small waves-effect waves-light z-depth-0" id="addition"><i
-              class="material-icons add">add</i></a>
+        <div class="add-ingred input-field col s12 l2">
+          <a class="btn-floating btn-small waves-effect waves-light z-depth-0 addition" data-category="dairy">
+            <i class="material-icons add">add</i>
+          </a>
         </div>
       </div>
     </div>
