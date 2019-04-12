@@ -181,6 +181,7 @@ input.valid[type=text]:not(.browser-default){
     background-color: transparent;
     color: black;
     margin-bottom: 100px;
+    margin-top: 50px;
 }
 
 #seeMore:hover {
