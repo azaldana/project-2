@@ -6,6 +6,7 @@ var seafoodPage = $(".seafood");
 var fruitPage = $(".fruit");
 var recipesPage = $(".recipe-content");
 var submit = $(".submit");
+var heart = $(".heart");
 
 function homePage() {
     dairyPage.hide();
@@ -16,6 +17,7 @@ function homePage() {
     fruitPage.hide();
     recipesPage.hide();
     submit.hide();
+    
 }
 
 homePage();
@@ -32,6 +34,7 @@ function dairy() {
         fruitPage.hide();
         recipesPage.hide();
         submit.show();
+        heart.hide();
     })
 }
 dairy();
@@ -48,6 +51,7 @@ function meat() {
         fruitPage.hide();
         recipesPage.hide();
         submit.show();
+        heart.hide();
     })
 }
 meat();
@@ -64,6 +68,7 @@ function veggie() {
         fruitPage.hide();
         recipesPage.hide();
         submit.show();
+        heart.hide();
     })
 }
 veggie();
@@ -80,6 +85,7 @@ function pantry() {
         fruitPage.hide();
         recipesPage.hide();
         submit.show();
+        heart.hide();
     })
 }
 pantry();
@@ -96,6 +102,7 @@ function seafood() {
         fruitPage.hide();
         recipesPage.hide();
         submit.show();
+        heart.hide();
     })
 }
 seafood();
@@ -112,6 +119,7 @@ function fruits() {
         fruitPage.show();
         recipesPage.hide();
         submit.show();
+        heart.hide();
     })
 }
 fruits();
@@ -121,6 +129,7 @@ function findRecipes() {
 
     submitClicked.on('click', function () {
         recipesPage.show();
+        heart.hide();
     })
 }
 
@@ -174,7 +183,7 @@ $("body").on("click", '.addition', function(event){
     var inputId = category + '-ingredient'
     var input = $("#" + inputId).val().trim();
     var prependHere = $('.' + category + ' .prepend-here');
-    var ingredMenu = $(`#${category}-ingred-menu`);
+    // var ingredMenu = $(`#${category}-ingred-menu`);
     //$('.add-ingred').remove();
     var checkbox = $(`
         <div class="col s12 l3">
@@ -201,9 +210,15 @@ $("body").on("click", '.addition', function(event){
 
 $('body').on('click', 'input[type="checkbox"]', function() {
     console.log($(this).next().text());
-    // var allChecked = $("input:checked");
-    // console.log(allChecked);
-    // allChecked.each(function(index, checked) {
-    //     console.log($(checked).next().text());
-    // });
 });
+
+function favorite(){
+    var saveClicked = $(".save");
+
+    saveClicked.on('click', function(event){
+        event.preventDefault();
+        heart.show();
+    })
+}
+
+favorite();
