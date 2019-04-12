@@ -316,6 +316,25 @@ footer .container {
     right: 0;
 }
 
+@media screen and (max-width: 975px){
+
+    .login, .signup {
+        border: none;
+        border-radius: 0;  
+        height: 0;
+        width: 100%;
+        text-align: left;
+        text-transform: none;
+        font-size: 10px;
+        margin: 0 auto;
+        margin-top: 0;
+    }
+
+    .login {
+        margin-top: 20px;
+    }
+}
+
 @media screen and (max-width: 550px){
     header{
         min-height: 550px;
@@ -323,6 +342,10 @@ footer .container {
     }
     #top-logo{
       width: 400px;
+    }
+
+    .login, .signup {
+        border: none;
     }
 }
 
