@@ -350,6 +350,10 @@ footer .container {
 }
 
 @media screen and (max-width: 500px){
+    header{
+        min-height: 550px;
+        margin: 0 auto;
+    }
     #top-logo{
       width: 350px;
       margin: 0 auto;
