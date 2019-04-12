@@ -19,15 +19,15 @@ module.exports = function(app) {
 
   // Load recipe page and pass in a recipe by id
   app.get("/recipe/:spoon", function(req, res) {
-    // db.Recipe.findAll({
-    //   where: {
-    //     spoonacularId: req.params.spoon
-    //   }
-    // }).then(function(dbRecipe) {
-      // res.render("recipes", dbRecipe);
-      res.render("recipes",{
-        spoonacularId: 123, smallImg: "fgh", bigImg: "ghj", instructions: "lkdhskljf", preptime: 34, ingredients: []
-      });
+    db.Recipe.findAll({
+      where: {
+        spoonacularId: req.params.spoon
+      }
+    }).then(function(dbRecipe) {
+      res.render("recipes", dbRecipe);
+    });
+    // res.render("recipes",{
+    //   spoonacularId: 123, smallImg: "fgh", bigImg: "ghj", instructions: "lkdhskljf", preptime: 34, ingredients: []
     // });
   });
 
