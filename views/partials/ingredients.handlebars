@@ -1,9 +1,11 @@
 <h5>List of Ingredients</h5>
 <ul>
+    {{#each ingredient}}
     <li>
         <label>
             <input type="checkbox" />
             <span>{{recipe-ingredient}}</span>
         </label>
     </li>
+    {{/each}}
 </ul>

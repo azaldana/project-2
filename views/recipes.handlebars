@@ -19,6 +19,7 @@
         </div>
         <div class="col l1"></div>
         <div class="col l8 recipeSection">
+            {{#each recipe}}
 
             <h2>{{recipe-name}}</h2>
              
@@ -33,6 +34,7 @@
             <button class="btn waves-effect waves-light z-depth-0" id="submit" type="submit" name="action">Add to Favorites
                 <i class="material-icons right">favorite</i>
             </button>
+            {{/each}}
 
         </div>
     </div>
