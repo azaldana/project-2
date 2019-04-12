@@ -168,13 +168,42 @@ $('#modal-signup').click((event) => {
     $('#signup').modal('open');
 })
 
-$("#addition").on("click", function(event){
+$("body").on("click", '.addition', function(event){
     event.preventDefault();
-    var input = $("#ingredient").val().trim();
+    var category = $(this).data('category');
+    var inputId = category + '-ingredient'
+    var input = $("#" + inputId).val().trim();
+    var prependHere = $('.' + category + ' .prepend-here');
+    var ingredMenu = $('#ingred-menu');
+    $('.add-ingred').remove();
+    var checkbox = $(`
+        <div class="col s12 l3">
+            <form action="#">
+            <p>
+                <label>
+                <input type="checkbox" />
+                <span>${input}</span>
+                </label>
+            </p>
+            </form>
+        </div>
+        <div class="add-ingred input-field col s12 l4">
+          <input placeholder="Name of Ingredient" id="dairy-ingredient" type="text" class="validate">
+          <label for="ingredient">Add Additional Ingredient</label>
+        </div>
+        <div class="add-ingred input-field col s12 l2">
+          <a class="btn-floating btn-small waves-effect waves-light z-depth-0 addition" data-category="dairy">
+            <i class="material-icons add">add</i>
+          </a>
+        </div>
+    `)
 
+    // prependHere.prepend(checkbox);
+    ingredMenu.append(checkbox);
+    
+    $('#dairy-ingredient').val('');
+    $('#dairy-ingredient').focus();
+
+
+    console.log(input);
 })
-
-function renderIngredient(){
-    var newIngredient = $("<form>");
-    // newIngredient.
-}

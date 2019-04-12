@@ -134,12 +134,12 @@ input.valid[type=text]:not(.browser-default){
     color: white;
 }
 
-#addition {
+.addition {
     background-color: #FFAB00;
     color: white;
 }
 
-#addition:hover {
+.addition:hover {
     background-color: #FECF0C;
     color: white;
 }
