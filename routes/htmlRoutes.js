@@ -3,7 +3,7 @@ var db = require("../models");
 module.exports = function(app) {
   // route loads index.handlebars
   app.get("/", function(req, res) {
-    res.render("index");
+    res.render("index", {});
   });
 
   // Load favorites page and pass in a user by name
