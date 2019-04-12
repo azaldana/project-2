@@ -168,13 +168,41 @@ $('#modal-signup').click((event) => {
     $('#signup').modal('open');
 })
 
-$("#addition").on("click", function(event){
+$("body").on("click", '.addition', function(event){
     event.preventDefault();
-    var input = $("#ingredient").val().trim();
+    var category = $(this).data('category');
+    var inputId = category + '-ingredient'
+    var input = $("#" + inputId).val().trim();
+    var prependHere = $('.' + category + ' .prepend-here');
+    var ingredMenu = $(`#${category}-ingred-menu`);
+    //$('.add-ingred').remove();
+    var checkbox = $(`
+        <div class="col s12 l3">
+            <form action="#">
+            <p>
+                <label>
+                <input type="checkbox" />
+                <span>${input}</span>
+                </label>
+            </p>
+            </form>
+        </div>
+    `)
 
+    checkbox.insertBefore(prependHere);
+    // ingredMenu.append(checkbox);
+    
+    $(`#${category}-ingredient`).val('');
+    $(`#${category}-ingredient`).focus();
+
+
+    console.log(input);
 })
 
-function renderIngredient(){
-    var newIngredient = $("<form>");
-    // newIngredient.
-}
+$('body').on('click', 'input[type="checkbox"]', function() {
+    var allChecked = $("input:checked");
+    console.log(allChecked);
+    allChecked.each(function(index, checked) {
+        console.log($(checked).next().text());
+    });
+});

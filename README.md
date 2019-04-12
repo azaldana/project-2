@@ -6,6 +6,7 @@ An ingredients - recipe application that uses MySQL, Node, Express, Handlebars a
 
 
 ## Description
+
 The goal of this application is to match users with recipes based on ingredients they possess and input into the database.
 
 + User will Sign Up/Log In to ensure that ingredients added to their refrigerator are added to the database, allowing the items to be visible for future Mish Mash visits.

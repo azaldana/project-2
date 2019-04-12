@@ -13,21 +13,23 @@
     <div class="row">
         <div class="col l3 listSection">
             {{!-- Ingredient partial will be placed here --}}
+
+            {{ingredients}}
             
         </div>
         <div class="col l1"></div>
         <div class="col l8 recipeSection">
-            {{!-- This headline is provided by the API --}}
-            <h2>Mango Chicken Curry</h2>
+
+            <h2>{{recipe-name}}</h2>
+             
             {{!-- The image is provided by the API --}}
-            <img src="./images/curry.jpg" width="600">
+            <img src={{recipe-image}} width="600">
             <br><br>
             <ul>
                 {{!-- The instructions are provided by the API --}}
                 <h4>Instructions:</h4>
-                <li>1. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur natus eveniet voluptate
-                    impedit.</li><br>
-                <li>2. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur natus eveniet voluptate
+                <li>{{recipe-instructions}}</li><br>
+                {{!-- <li>2. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur natus eveniet voluptate
                     impedit.</li><br>
                 <li>3. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur natus eveniet voluptate
                     impedit.</li><br>
@@ -36,7 +38,7 @@
                 <li>5. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur natus eveniet voluptate
                     impedit.</li><br>
                 <li>6. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur natus eveniet voluptate
-                    impedit.</li><br>
+                    impedit.</li><br> --}}
             </ul>
             <button class="btn waves-effect waves-light z-depth-0" id="submit" type="submit" name="action">
                 <i class="material-icons right">send</i>

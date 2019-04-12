@@ -1,18 +1,29 @@
 <!-- NavBar Section -->
 <header>
   <nav class="nav-wrapper transparent z-depth-0">
-    <ul id="nav-mobile" class="right">
+  <div class="container">
+  <a href="#" class="sidenav-trigger" data-target="mobile-menu">
+    <i class="material-icons white-text">menu</i></a>
+  <ul id="nav-mobile" class="right hide-on-med-and-down">
 
 
-      {{!-- When Login Button or Sign Up button is pressed, the data goes to the database and the header then shows the "Fridge", "Favorites" and "Log Out" Buttons --}}
+    {{!-- When Login Button or Sign Up button is pressed, the data goes to the database and the header then shows the "Fridge", "Favorites" and "Log Out" Buttons --}}
 
-      <li><a href="#login" class="white-text login valign-wrapper modal-trigger">Log In</a></li>
-      <li><a href="#signup" class="white-text signup valign-wrapper modal-trigger">Sign Up</a></li>
-      <li><a href="#" class="white-text fridge valign-wrapper">Fridge</a></li>
-      <li><a href="/favorites" class="white-text favorites valign-wrapper">Favorites</a></li>
-      {{!-- <li><a href="#" class="white-text logout valign-wrapper">Log Out</a></li> --}}
-      <li><a href="#" class="white-text valign-wrapper"></a></li>
-    </ul>
+    <li><a href="#login" class="white-text login valign-wrapper modal-trigger">Log In</a></li>
+    <li><a href="#signup" class="white-text signup valign-wrapper modal-trigger">Sign Up</a></li>
+    <li><a href="#" class="white-text fridge valign-wrapper">Fridge</a></li>
+    <li><a href="/favorites" class="white-text favorites valign-wrapper">Favorites</a></li>
+    {{!-- <li><a href="#" class="white-text logout valign-wrapper">Log Out</a></li> --}}
+    <li><a href="#" class="white-text valign-wrapper"></a></li>
+  </ul>
+
+  <ul class="sidenav grey lighten-2" id="mobile-menu">
+    <li><a href="#login" class="blue-grey-text text-darken-4">Log In</a></li>
+    <li><a href="#signup" class="blue-grey-text text-darken-4">Sign Up</a></li>
+    <li><a href="#" class="blue-grey-text text-darken-4">Fridge</a></li>
+    <li><a href="/favorites" class="amber-accent-4">Favorites</a></li>
+  </ul>
+  </div>
   </nav>
 
   <!-- Background Image in Header -->
@@ -185,7 +196,7 @@
 
     <!-- Dairy Checkboxes Section -->
     <div class="dairy">
-      <div class="row">
+      <div id="dairy-ingred-menu" class="row">
         <div class="col s12 l3">
           <form action="#">
             <p>
@@ -230,9 +241,9 @@
             </p>
           </form>
         </div>
-      </div>
+      {{!-- </div> --}}
 
-      <div class="row">
+      {{!-- <div class="row"> --}}
         <div class="col s12 l3">
           <form action="#">
             <p>
@@ -277,8 +288,9 @@
             </p>
           </form>
         </div>
-      </div>
-      <div class="row">
+      {{!-- </div> --}}
+
+      {{!-- <div class="row"> --}}
         <div class="col s12 l3">
           <form action="#">
             <p>
@@ -296,7 +308,7 @@
               <label>
                 {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
                 <input type="checkbox" />
-                <span>Creamer</span>
+                <span>Half n Half</span>
               </label>
             </p>
           </form>
@@ -323,8 +335,9 @@
             </p>
           </form>
         </div>
-      </div>
-      <div class="row">
+      {{!-- </div> --}}
+
+      {{!-- <div class="row"> --}}
         <div class="col s12 l3">
           <form action="#">
             <p>
@@ -369,35 +382,40 @@
             </p>
           </form>
         </div>
-      </div>
-      <div class="row">
+      {{!-- </div> --}}
+
+      {{!-- <div class="row"> --}}
         <div class="col s12 l3">
           <form action="#">
             <p>
               <label>
                 {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
                 <input type="checkbox" />
-                <span>Ice Cream</span>
+                <span>Goat Cheese</span>
               </label>
             </p>
           </form>
         </div>
-        <div class="input-field col s12 l4">
+
+        <div class="prepend-here"></div>  
+
+        <div class="add-ingred input-field col s12 l4">
           {{!-- When a user types in a new ingredient and presses the + button, it needs to be added to the list with a check mark checked --}}
 
-          <input placeholder="Name of Ingredient" id="ingredient" type="text" class="validate">
+          <input placeholder="Name of Ingredient" id="dairy-ingredient" type="text" class="validate">
           <label for="ingredient">Add Additional Ingredient</label>
         </div>
-        <div class="input-field col s12 l2">
-          <a class="btn-floating btn-small waves-effect waves-light z-depth-0" id="addition"><i
-              class="material-icons add">add</i></a>
+        <div class="add-ingred input-field col s12 l2">
+          <a class="btn-floating btn-small waves-effect waves-light z-depth-0 addition" data-category="dairy">
+            <i class="material-icons add">add</i>
+          </a>
         </div>
       </div>
     </div>
 
     <!-- Meat Checkboxes Section -->
     <div class="meat">
-      <div class="row">
+      <div id="meat-ingred-menu" class="row">
         <div class="col s12 l3">
           <form action="#">
             <p>
@@ -437,21 +455,21 @@
               <label>
                 {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
                 <input type="checkbox" />
-                <span>Hot Dogs</span>
+                <span>Hotdogs</span>
               </label>
             </p>
           </form>
         </div>
-      </div>
+      {{!-- </div> --}}
 
-      <div class="row">
+      {{!-- <div class="row"> --}}
         <div class="col s12 l3">
           <form action="#">
             <p>
               <label>
                 {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
                 <input type="checkbox" />
-                <span>Hot Links</span>
+                <span>Duck</span>
               </label>
             </p>
           </form>
@@ -473,7 +491,7 @@
               <label>
                 {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
                 <input type="checkbox" />
-                <span>Boneless Chicken</span>
+                <span>Rabbit</span>
               </label>
             </p>
           </form>
@@ -484,13 +502,13 @@
               <label>
                 {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
                 <input type="checkbox" />
-                <span>Deli meats</span>
+                <span>Veal</span>
               </label>
             </p>
           </form>
         </div>
-      </div>
-      <div class="row">
+      {{!-- </div> --}}
+      {{!-- <div class="row"> --}}
         <div class="col s12 l3">
           <form action="#">
             <p>
@@ -535,8 +553,8 @@
             </p>
           </form>
         </div>
-      </div>
-      <div class="row">
+      {{!-- </div> --}}
+      {{!-- <div class="row"> --}}
         <div class="col s12 l3">
           <form action="#">
             <p>
@@ -581,34 +599,39 @@
             </p>
           </form>
         </div>
-      </div>
-      <div class="row">
+      {{!-- </div> --}}
+      {{!-- <div class="row"> --}}
         <div class="col s12 l3">
           <form action="#">
             <p>
               <label>
                 {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
                 <input type="checkbox" />
-                <span>Jerky</span>
+                <span>Beef Jerky</span>
               </label>
             </p>
           </form>
         </div>
-        <div class="input-field col s12 l4">
+
+        <div class="prepend-here"></div>
+
+        <div class="add-ingred input-field col s12 l4">
           {{!-- When a user types in a new ingredient and presses the + button, it needs to be added to the list with a check mark checked --}}
-          <input placeholder="Name of Ingredient" id="ingredient" type="text" class="validate">
+
+          <input placeholder="Name of Ingredient" id="meat-ingredient" type="text" class="validate">
           <label for="ingredient">Add Additional Ingredient</label>
         </div>
-        <div class="input-field col s12 l2">
-          <a class="btn-floating btn-small waves-effect waves-light z-depth-0" id="addition"><i
-              class="material-icons add">add</i></a>
+        <div class="add-ingred input-field col s12 l2">
+          <a class="btn-floating btn-small waves-effect waves-light z-depth-0 addition" data-category="meat">
+            <i class="material-icons add">add</i>
+          </a>
         </div>
       </div>
     </div>
 
     <!-- Veggie Checkboxes Section -->
     <div class="veggies">
-      <div class="row">
+      <div id="veggie-ingred-menu" class="row">
         <div class="col s12 l3">
           <form action="#">
             <p>
@@ -653,9 +676,9 @@
             </p>
           </form>
         </div>
-      </div>
+      {{!-- </div> --}}
 
-      <div class="row">
+      {{!-- <div class="row"> --}}
         <div class="col s12 l3">
           <form action="#">
             <p>
@@ -700,8 +723,8 @@
             </p>
           </form>
         </div>
-      </div>
-      <div class="row">
+      {{!-- </div> --}}
+      {{!-- <div class="row"> --}}
         <div class="col s12 l3">
           <form action="#">
             <p>
@@ -746,8 +769,8 @@
             </p>
           </form>
         </div>
-      </div>
-      <div class="row">
+      {{!-- </div> --}}
+      {{!-- <div class="row"> --}}
         <div class="col s12 l3">
           <form action="#">
             <p>
@@ -792,8 +815,8 @@
             </p>
           </form>
         </div>
-      </div>
-      <div class="row">
+      {{!-- </div> --}}
+      {{!-- <div class="row"> --}}
         <div class="col s12 l3">
           <form action="#">
             <p>
@@ -805,21 +828,26 @@
             </p>
           </form>
         </div>
-        <div class="input-field col s12 l4">
+
+        <div class="prepend-here"></div>
+
+        <div class="add-ingred input-field col s12 l4">
           {{!-- When a user types in a new ingredient and presses the + button, it needs to be added to the list with a check mark checked --}}
-          <input placeholder="Name of Ingredient" id="ingredient" type="text" class="validate">
+
+          <input placeholder="Name of Ingredient" id="veggies-ingredient" type="text" class="validate">
           <label for="ingredient">Add Additional Ingredient</label>
         </div>
-        <div class="input-field col s12 l2">
-          <a class="btn-floating btn-small waves-effect waves-light z-depth-0" id="addition"><i
-              class="material-icons add">add</i></a>
+        <div class="add-ingred input-field col s12 l2">
+          <a class="btn-floating btn-small waves-effect waves-light z-depth-0 addition" data-category="veggies">
+            <i class="material-icons add">add</i>
+          </a>
         </div>
       </div>
     </div>
 
     <!-- Pantry Checkboxes Section -->
     <div class="pantry">
-      <div class="row">
+      <div id="pantry-ingred-menu" class="row">
         <div class="col s12 l3">
           <form action="#">
             <p>
@@ -864,9 +892,9 @@
             </p>
           </form>
         </div>
-      </div>
+      {{!-- </div> --}}
 
-      <div class="row">
+      {{!-- <div class="row"> --}}
         <div class="col s12 l3">
           <form action="#">
             <p>
@@ -895,7 +923,7 @@
               <label>
                 {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
                 <input type="checkbox" />
-                <span>Beans</span>
+                <span>Lima Beans</span>
               </label>
             </p>
           </form>
@@ -911,8 +939,8 @@
             </p>
           </form>
         </div>
-      </div>
-      <div class="row">
+      {{!-- </div> --}}
+      {{!-- <div class="row"> --}}
         <div class="col s12 l3">
           <form action="#">
             <p>
@@ -930,7 +958,7 @@
               <label>
                 {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
                 <input type="checkbox" />
-                <span>Sauces</span>
+                <span>Alfredo Sauce</span>
               </label>
             </p>
           </form>
@@ -952,20 +980,20 @@
               <label>
                 {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
                 <input type="checkbox" />
-                <span>Syrup</span>
+                <span>Maple Syrup</span>
               </label>
             </p>
           </form>
         </div>
-      </div>
-      <div class="row">
+      {{!-- </div> --}}
+      {{!-- <div class="row"> --}}
         <div class="col s12 l3">
           <form action="#">
             <p>
               <label>
                 {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
                 <input type="checkbox" />
-                <span>Cooking Oil</span>
+                <span>Olive Oil</span>
               </label>
             </p>
           </form>
@@ -998,13 +1026,13 @@
               <label>
                 {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
                 <input type="checkbox" />
-                <span>Chips</span>
+                <span>Potato Chips</span>
               </label>
             </p>
           </form>
         </div>
-      </div>
-      <div class="row">
+      {{!-- </div> --}}
+      {{!-- <div class="row"> --}}
         <div class="col s12 l3">
           <form action="#">
             <p>
@@ -1016,21 +1044,26 @@
             </p>
           </form>
         </div>
-        <div class="input-field col s12 l4">
+
+        <div class="prepend-here"></div>
+
+        <div class="add-ingred input-field col s12 l4">
           {{!-- When a user types in a new ingredient and presses the + button, it needs to be added to the list with a check mark checked --}}
-          <input placeholder="Name of Ingredient" id="ingredient" type="text" class="validate">
+
+          <input placeholder="Name of Ingredient" id="pantry-ingredient" type="text" class="validate">
           <label for="ingredient">Add Additional Ingredient</label>
         </div>
-        <div class="input-field col s12 l2">
-          <a class="btn-floating btn-small waves-effect waves-light z-depth-0" id="addition"><i
-              class="material-icons add">add</i></a>
+        <div class="add-ingred input-field col s12 l2">
+          <a class="btn-floating btn-small waves-effect waves-light z-depth-0 addition" data-category="pantry">
+            <i class="material-icons add">add</i>
+          </a>
         </div>
       </div>
     </div>
 
     <!-- Seafood Checkboxes Section -->
     <div class="seafood">
-      <div class="row">
+      <div id="seafood-ingred-menu" class="row">
         <div class="col s12 l3">
           <form action="#">
             <p>
@@ -1075,9 +1108,9 @@
             </p>
           </form>
         </div>
-      </div>
+      {{!-- </div> --}}
 
-      <div class="row">
+      {{!-- <div class="row"> --}}
         <div class="col s12 l3">
           <form action="#">
             <p>
@@ -1122,8 +1155,8 @@
             </p>
           </form>
         </div>
-      </div>
-      <div class="row">
+      {{!-- </div> --}}
+      {{!-- <div class="row"> --}}
         <div class="col s12 l3">
           <form action="#">
             <p>
@@ -1152,7 +1185,7 @@
               <label>
                 {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
                 <input type="checkbox" />
-                <span>Mahi Mahi</span>
+                <span>Mahimahi</span>
               </label>
             </p>
           </form>
@@ -1168,8 +1201,8 @@
             </p>
           </form>
         </div>
-      </div>
-      <div class="row">
+      {{!-- </div> --}}
+      {{!-- <div class="row"> --}}
         <div class="col s12 l3">
           <form action="#">
             <p>
@@ -1187,7 +1220,7 @@
               <label>
                 {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
                 <input type="checkbox" />
-                <span>Trout</span>
+                <span>Smoked Trout</span>
               </label>
             </p>
           </form>
@@ -1214,8 +1247,8 @@
             </p>
           </form>
         </div>
-      </div>
-      <div class="row">
+      {{!-- </div> --}}
+      {{!-- <div class="row"> --}}
         <div class="col s12 l3">
           <form action="#">
             <p>
@@ -1227,21 +1260,26 @@
             </p>
           </form>
         </div>
-        <div class="input-field col s12 l4">
+
+        <div class="prepend-here"></div>
+
+        <div class="add-ingred input-field col s12 l4">
           {{!-- When a user types in a new ingredient and presses the + button, it needs to be added to the list with a check mark checked --}}
-          <input placeholder="Name of Ingredient" id="ingredient" type="text" class="validate">
+
+          <input placeholder="Name of Ingredient" id="seafood-ingredient" type="text" class="validate">
           <label for="ingredient">Add Additional Ingredient</label>
         </div>
-        <div class="input-field col s12 l2">
-          <a class="btn-floating btn-small waves-effect waves-light z-depth-0" id="addition"><i
-              class="material-icons add">add</i></a>
+        <div class="add-ingred input-field col s12 l2">
+          <a class="btn-floating btn-small waves-effect waves-light z-depth-0 addition" data-category="seafood">
+            <i class="material-icons add">add</i>
+          </a>
         </div>
       </div>
     </div>
 
     <!-- Fruit Checkboxes Section -->
     <div class="fruit">
-      <div class="row">
+      <div id="fruit-ingred-menu" class="row">
         <div class="col s12 l3">
           <form action="#">
             <p>
@@ -1286,9 +1324,9 @@
             </p>
           </form>
         </div>
-      </div>
+      {{!-- </div> --}}
 
-      <div class="row">
+      {{!-- <div class="row"> --}}
         <div class="col s12 l3">
           <form action="#">
             <p>
@@ -1333,8 +1371,8 @@
             </p>
           </form>
         </div>
-      </div>
-      <div class="row">
+      {{!-- </div> --}}
+      {{!-- <div class="row"> --}}
         <div class="col s12 l3">
           <form action="#">
             <p>
@@ -1379,8 +1417,8 @@
             </p>
           </form>
         </div>
-      </div>
-      <div class="row">
+      {{!-- </div> --}}
+      {{!-- <div class="row"> --}}
         <div class="col s12 l3">
           <form action="#">
             <p>
@@ -1425,27 +1463,32 @@
             </p>
           </form>
         </div>
-      </div>
-      <div class="row">
+      {{!-- </div> --}}
+      {{!-- <div class="row"> --}}
         <div class="col s12 l3">
           <form action="#">
             <p>
               <label>
                 {{!-- When the checkbox is checked, add that ingredient to the user "fridge" --}}
-                <input type="checkbox" />
+                <input id="checkbox" type="checkbox" />
                 <span>Cherries</span>
               </label>
             </p>
           </form>
         </div>
-        <div class="input-field col s12 l4">
+
+        <div class="prepend-here"></div>
+
+        <div class="add-ingred input-field col s12 l4">
           {{!-- When a user types in a new ingredient and presses the + button, it needs to be added to the list with a check mark checked --}}
-          <input placeholder="Name of Ingredient" id="ingredient" type="text" class="validate">
+
+          <input placeholder="Name of Ingredient" id="fruit-ingredient" type="text" class="validate">
           <label for="ingredient">Add Additional Ingredient</label>
         </div>
-        <div class="input-field col s12 l2">
-          <a class="btn-floating btn-small waves-effect waves-light z-depth-0" id="addition"><i
-              class="material-icons add">add</i></a>
+        <div class="add-ingred input-field col s12 l2">
+          <a class="btn-floating btn-small waves-effect waves-light z-depth-0 addition" data-category="fruit">
+            <i class="material-icons add">add</i>
+          </a>
         </div>
       </div>
     </div>
@@ -1469,19 +1512,16 @@
         <div class="card">
           <div class="card-image">
             {{!-- Image needs to be grabbed by the API --}}
-            <img src="./images/curry.jpg" alt="">
-            <a href="" class="halfway-fab btn-floating pink pulse">
+            <img src={{recipe-image}} alt="">
+            {{!-- <a href="" class="halfway-fab btn-floating pink pulse">
               <i class="material-icons">favorite</i>
-            </a>
+            </a> --}}
           </div>
           <div class="card-content">
             {{!-- Recipe Name needs to be pulled from the API --}}
-            <span class="card-title">Mango Chicken Curry</span>
+            <span class="card-title">{{recipe-name}}</span>
             {{!-- Missing Ingredients needs to be grabbed by the API --}}
-            <p>Missing Ingredients:
-              blah,
-              blah,
-              blah</p>
+            <p>{{recipe-missing-ingredients}}</p>
           </div>
           <div class="card-action">
             <a href="" class="blue-grey-text text-lighten-1">Save</a>
@@ -1495,16 +1535,13 @@
           <div class="card">
             <div class="card-image">
               {{!-- Image needs to be grabbed by the API --}}
-              <img src="./images/pasta.jpg" alt="">
+              <img src= {{recipe-image}} alt="">
             </div>
             <div class="card-content">
               {{!-- Recipe Name needs to be pulled from the API --}}
-              <span class="card-title">Rainbow Pasta Salad</span>
+              <span class="card-title">{{recipe-name}}</span>
               {{!-- Missing Ingredients needs to be grabbed by the API --}}
-              <p>Missing Ingredients:
-                blah,
-                blah,
-                blah</p>
+              <p>{{recipe-missing-ingredients}}</p>
             </div>
             <div class="card-action">
               <a href="" class="blue-grey-text text-lighten-1">Save</a>
@@ -1517,19 +1554,16 @@
           <div class="card">
             <div class="card-image">
               {{!-- Image needs to be grabbed by the API --}}
-              <img src="./images/curry.jpg" alt="">
-              <a href="" class="halfway-fab btn-floating pink pulse">
+              <img src= {{recipe-image}} alt="">
+              {{!-- <a href="" class="halfway-fab btn-floating pink pulse">
                 <i class="material-icons">favorite</i>
-              </a>
+              </a> --}}
             </div>
             <div class="card-content">
               {{!-- Recipe Name needs to be pulled from the API --}}
-              <span class="card-title">Spicy Lamb Curry</span>
+              <span class="card-title">{{recipe-name}}</span>
               {{!-- Missing Ingredients needs to be grabbed by the API --}}
-              <p>Missing Ingredients:
-                blah,
-                blah,
-                blah</p>
+              <p>{{recipe-missing-ingredients}}</p>
             </div>
             <div class="card-action">
               <a href="" class="blue-grey-text text-lighten-1">Save</a>
@@ -1546,19 +1580,16 @@
           <div class="card">
             <div class="card-image">
               {{!-- Image needs to be grabbed by the API --}}
-              <img src="./images/curry.jpg" alt="">
-              <a href="" class="halfway-fab btn-floating pink pulse">
+              <img src= {{recipe-image}} alt="">
+              {{!-- <a href="" class="halfway-fab btn-floating pink pulse">
                 <i class="material-icons">favorite</i>
-              </a>
+              </a> --}}
             </div>
             <div class="card-content">
               {{!-- Recipe Name needs to be pulled from the API --}}
-              <span class="card-title">Mango Chicken Curry</span>
+              <span class="card-title">{{recipe-name}}</span>
               {{!-- Missing Ingredients needs to be grabbed by the API --}}
-              <p>Missing Ingredients:
-                blah,
-                blah,
-                blah</p>
+              <p>{{recipe-missing-ingredients}}</p>
             </div>
             <div class="card-action">
               <a href="" class="blue-grey-text text-lighten-1">Save</a>
@@ -1572,16 +1603,13 @@
             <div class="card">
               <div class="card-image">
                 {{!-- Image needs to be grabbed by the API --}}
-                <img src="./images/pasta.jpg" alt="">
+                <img src= {{recipe-image}} alt="">
               </div>
               <div class="card-content">
                 {{!-- Recipe Name needs to be pulled from the API --}}
-                <span class="card-title">Rainbow Pasta Salad</span>
+                <span class="card-title">{{recipe-name}}</span>
                 {{!-- Missing Ingredients needs to be grabbed by the API --}}
-                <p>Missing Ingredients:
-                  blah,
-                  blah,
-                  blah</p>
+                <p>{{recipe-missing-ingredients}}</p>
               </div>
               <div class="card-action">
                 <a href="" class="blue-grey-text text-lighten-1">Save</a>
@@ -1594,19 +1622,16 @@
             <div class="card">
               <div class="card-image">
                 {{!-- Image needs to be grabbed by the API --}}
-                <img src="./images/curry.jpg" alt="">
-                <a href="" class="halfway-fab btn-floating pink pulse">
+                <img src= {{recipe-image}} alt="">
+                {{!-- <a href="" class="halfway-fab btn-floating pink pulse">
                   <i class="material-icons">favorite</i>
-                </a>
+                </a> --}}
               </div>
               <div class="card-content">
                 {{!-- Recipe Name needs to be pulled from the API --}}
-                <span class="card-title">Spicy Lamb Curry</span>
+                <span class="card-title">{{recipe-name}}</span>
                 {{!-- Missing Ingredients needs to be grabbed by the API --}}
-                <p>Missing Ingredients:
-                  blah,
-                  blah,
-                  blah</p>
+                <p>{{recipe-missing-ingredients}}</p>
               </div>
               <div class="card-action">
                 <a href="" class="blue-grey-text text-lighten-1">Save</a>
@@ -1660,3 +1685,13 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="./js/app.js"></script>
+
+    <script>
+        $(document).ready(function () {
+             console.log('ready');
+
+
+            $('.sidenav').sidenav();
+
+        });
+    </script>

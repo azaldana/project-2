@@ -7,18 +7,15 @@
             <div class="card">
                 <div class="card-image">
                     {{!-- The image is provided by the API, similar to the recipe section on the main page --}}
-                    <img src="./images/pasta.jpg" alt="">
+                    <img src= {{recipe-image}} alt="">
                     <a href="" class="halfway-fab btn-floating pink pulse">
                         <i class="material-icons">favorite</i>
                     </a>
                 </div>
                 <div class="card-content">
                     {{!-- The Name is provided by the API, similar to the recipe section on the main page --}}
-                    <span class="card-title">Rainbow Pasta Salad</span>
-                    <p>Missing Ingredients:
-                        blah,
-                        blah,
-                        blah</p>
+                    <span class="card-title">{{recipe-name}}</span>
+                    <p>{{recipe-missing-ingredients}}</p>
                 </div>
                 <div class="card-action">
                     {{!-- This button will take you to the recipe page --}}
@@ -29,7 +26,7 @@
         </div>
 
         {{!-- Same information as above --}}
-        <div class="col s12 l3">
+        {{!-- <div class="col s12 l3">
             <div class="card">
                 <div class="card-image">
                     <img src="./images/curry.jpg" alt="">
@@ -92,6 +89,6 @@
                     <a href="" class="blue-grey-text text-lighten-1">Remove</a>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 </div>
