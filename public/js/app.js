@@ -174,8 +174,8 @@ $("body").on("click", '.addition', function(event){
     var inputId = category + '-ingredient'
     var input = $("#" + inputId).val().trim();
     var prependHere = $('.' + category + ' .prepend-here');
-    var ingredMenu = $('#ingred-menu');
-    $('.add-ingred').remove();
+    var ingredMenu = $(`#${category}-ingred-menu`);
+    //$('.add-ingred').remove();
     var checkbox = $(`
         <div class="col s12 l3">
             <form action="#">
@@ -187,23 +187,22 @@ $("body").on("click", '.addition', function(event){
             </p>
             </form>
         </div>
-        <div class="add-ingred input-field col s12 l4">
-          <input placeholder="Name of Ingredient" id="dairy-ingredient" type="text" class="validate">
-          <label for="ingredient">Add Additional Ingredient</label>
-        </div>
-        <div class="add-ingred input-field col s12 l2">
-          <a class="btn-floating btn-small waves-effect waves-light z-depth-0 addition" data-category="dairy">
-            <i class="material-icons add">add</i>
-          </a>
-        </div>
     `)
 
-    // prependHere.prepend(checkbox);
-    ingredMenu.append(checkbox);
+    checkbox.insertBefore(prependHere);
+    // ingredMenu.append(checkbox);
     
-    $('#dairy-ingredient').val('');
-    $('#dairy-ingredient').focus();
+    $(`#${category}-ingredient`).val('');
+    $(`#${category}-ingredient`).focus();
 
 
     console.log(input);
 })
+
+$('body').on('click', 'input[type="checkbox"]', function() {
+    var allChecked = $("input:checked");
+    console.log(allChecked);
+    allChecked.each(function(index, checked) {
+        console.log($(checked).next().text());
+    });
+});
