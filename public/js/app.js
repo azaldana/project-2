@@ -200,9 +200,10 @@ $("body").on("click", '.addition', function(event){
 })
 
 $('body').on('click', 'input[type="checkbox"]', function() {
-    var allChecked = $("input:checked");
-    console.log(allChecked);
-    allChecked.each(function(index, checked) {
-        console.log($(checked).next().text());
-    });
+    console.log($(this).next().text());
+    // var allChecked = $("input:checked");
+    // console.log(allChecked);
+    // allChecked.each(function(index, checked) {
+    //     console.log($(checked).next().text());
+    // });
 });
