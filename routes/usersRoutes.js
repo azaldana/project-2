@@ -20,5 +20,22 @@ module.exports = function(app) {
     });
   });
 
-  // Delete and Update are for later
+  // Update user
+  app.put("/api/user/:user", function(req, res) {
+    db.User.update(
+      {
+        name: req.body.name,
+        password: req.body.password
+      },
+      {
+        where: {
+          id: req.body.id
+        }
+      }
+    ).then(function(dbUser) {
+      res.json(dbUser);
+    });
+  });
+
+  // Delete is for later
 };

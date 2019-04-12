@@ -1,26 +1,5 @@
-var userId;
-// What happens when you first get to the page
-// Create temp user
-// User post
-// Set user variable to whatever the temp
-// If POST returns id, take it, else GET
-
-// What happens when you submit sign up
-// Create permanent user
-// Create object from the user input (name password)
-// User POST with object
-// Set user variable to whatever the temp
-// If POST returns id, take it, else GET
-
-// What happens when you submit log in
-// Create object from user input (name password)
-// User GET with that object based on object.name
-// if user.password =  object.password
-// Verified!
-// Set user variable to user user.id
-// GET fridge based on id
-// Set all the ingredients to their fridge values
-// Else: user or password incorrect
+var localUser = {};
+var loginCheck = {};
 
 // What happens when you check on an ingredient
 // GET Fridge to see if the object exists
@@ -62,8 +41,8 @@ var API = {
       success: function(response) {
         localStorage.clear();
         localStorage.setItem("userId", response.id);
-        userId = localStorage.getItem("userId");
-        console.log(userId);
+        localUser.id = localStorage.getItem("userId");
+        console.log(localUser.id);
         // GET fridges
       }
     });
@@ -73,8 +52,17 @@ var API = {
       url: "/api/user/" + userName,
       type: "GET",
       success: function(res) {
+        loginCheck.id = res.id;
+        loginCheck.password = res.password;
         console.log(res);
       }
+    });
+  },
+  updateUser: function(userObj) {
+    return $.ajax({
+      url: "/api/user/" + userObj.id,
+      type: "PUT",
+      data: userObj
     });
   },
 
@@ -211,27 +199,85 @@ var handleDeleteBtnClick = function() {
 // $submitBtn.on("click", handleFormSubmit);
 // $exampleList.on("click", ".delete", handleDeleteBtnClick);
 
+// What happens when you first get to the page
 console.log(localStorage.getItem("userId"));
+
 if (localStorage.getItem("userId") === null) {
+  // Create temp user
   var tempUser = {
     name: "temp",
     password: ""
   };
+  localUser.name = tempUser.name;
+  // User post
   API.createUser(tempUser);
 } else {
-  userId = localStorage.getItem("userId");
-  API.getFridge(userId);
+  localUser.id = localStorage.getItem("userId");
+  API.getFridge(localUser.id);
 }
 
-$("#signUpSubmit").on("submit", function(event) {
+// What happens when you submit sign up
+// Right now, you are able to sign up with the same user name as someone else
+$("#signup_submit").on("click", function(event) {
   event.preventDefault();
+  console.log("button pressed");
+  console.log(
+    $("#user_name_signup")
+      .val()
+      .trim()
+  );
+  console.log($("#password_signup").val());
+  // create user object
   var signUp = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
+    name: $("#user_name_signup")
+      .val()
+      .trim(),
+    password: $("#password_signup")
+      .val()
+      .trim()
   };
+  var confirm = $("#password_confirm")
+    .val()
+    .trim();
 
-  if (!(example.text && example.description)) {
+  console.log(signUp.name + " " + signUp.password + " " + confirm);
+  // check to make sure both inputs are present
+  if (!(signUp.name && signUp.password)) {
     alert("You must enter an example text and description!");
     return;
+  } else if (signUp.password !== confirm) {
+    alert("Password did not match");
+  } else {
+    // Create permanent user
+    if (localUser.name === "temp") {
+      signUp.id = localUser.id;
+      API.updateUser(signUp);
+    } else {
+      API.createUser(signUp);
+    }
   }
+});
+
+// What happens when you submit log in
+$("#login_submit").on("click", function(event) {
+  event.preventDefault();
+  // Create object from user input (name password)
+  var login = {
+    name: $("#user_name_login")
+      .val()
+      .trim(),
+    password: $("#password_login")
+      .val()
+      .trim()
+  };
+  // User GET with that object based on object.name
+  API.getUser(login.name);
+  if (login.password === loginCheck.password) {
+    localStorage.setItem("userId", login.id);
+    alert("Welcome, " + login.name + "!");
+  } else {
+    alert("Username or password did not match.");
+  }
+  // GET fridge based on id
+  // Set all the ingredients to their fridge values
 });
