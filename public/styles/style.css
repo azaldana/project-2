@@ -144,10 +144,6 @@ input.valid[type=text]:not(.browser-default){
     color: white;
 }
 
-.social {
-    background-color: #FFAB00;
-}
-
 [type="checkbox"]:checked+span:not(.lever):before {
     border-top: 2px solid transparent;
     border-left: 2px solid transparent;
@@ -284,10 +280,13 @@ input.valid[type=text]:not(.browser-default){
   margin-left: 10px;
 }
 
-/* button {
-    border: 1 !important;
-    border-color: #FECF0C;
-} */
+.social {
+    background-color: #FFAB00;
+}
+
+.social:hover {
+    background-color: #ffab00;
+}
 
 #user_name {
     width: 65%;
