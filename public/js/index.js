@@ -61,6 +61,7 @@ var API = {
       success: function(response) {
         localStorage.clear();
         localStorage.setItem("userId", response.id);
+        console.log(localStorage.getItem("userId"));
         // GET fridges
       }
     });
@@ -144,8 +145,8 @@ var handleDeleteBtnClick = function() {
 };
 
 // Add event listeners to the submit and delete buttons
-$submitBtn.on("click", handleFormSubmit);
-$exampleList.on("click", ".delete", handleDeleteBtnClick);
+// $submitBtn.on("click", handleFormSubmit);
+// $exampleList.on("click", ".delete", handleDeleteBtnClick);
 
 console.log(localStorage.getItem("userId"));
 if (localStorage.getItem("userId") === null) {
