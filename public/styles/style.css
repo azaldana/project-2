@@ -314,3 +314,36 @@ footer .container {
     width: 90%;
     right: 0;
 }
+
+@media screen and (max-width: 550px){
+    header{
+        min-height: 550px;
+        margin: 0 auto;
+    }
+    #top-logo{
+      width: 400px;
+    }
+}
+
+@media screen and (max-width: 500px){
+    #top-logo{
+      width: 350px;
+      margin: 0 auto;
+    }
+}
+/* 
+@media screen and (max-width: 603px){
+  input.select-dropdown.dropdown-trigger{
+        font-size: 1em;
+    }
+} 
+
+
+@media screen and (max-width: 507px){
+    .brand-logo.deep-orange-text.text-darken-4{
+        font-size: 1.5em;
+    }
+    input.select-dropdown.dropdown-trigger{
+        font-size: .8em;
+    }
+} */
