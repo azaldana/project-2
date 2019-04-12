@@ -1509,8 +1509,11 @@ This is the recipe section on the main page --}}
     <img src="./images/mish-mash-icon-yellow-new.png" width="50" alt="Icon" id="recipeIcon">
     <br><br><br>
 
+
     <div class="row">
+      
       <div class="col s12 l4">
+        {{#each recipe}}
         <div class="card">
           <div class="card-image">
             <img src={{recipe-image}} alt="Recipe Image">
@@ -1527,6 +1530,7 @@ This is the recipe section on the main page --}}
             <a href="/recipe" class="blue-grey-text text-lighten-1">View Recipe</a>
           </div>
         </div>
+        {{/each}}
       </div>
 
       {{!-- The next 6 results pulled from the API will be shown once the "submit" button is clicked --}}

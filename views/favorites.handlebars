@@ -4,10 +4,10 @@
 
     <div class="row">
         <div class="col s12 l3">
+            {{#each recipe}}
             <div class="card">
                 <div class="card-image">
-                    {{!-- The image is provided by the API, similar to the recipe section on the main page --}}
-                    <img src= {{recipe-image}} alt="">
+                    <img src={{recipe-image}} alt="">
                     <a href="" class="halfway-fab btn-floating pink pulse">
                         <i class="material-icons">favorite</i>
                     </a>
@@ -23,72 +23,7 @@
                     <a href="" class="blue-grey-text text-lighten-1">Remove</a>
                 </div>
             </div>
+            {{/each}}
         </div>
-
-        {{!-- Same information as above --}}
-        {{!-- <div class="col s12 l3">
-            <div class="card">
-                <div class="card-image">
-                    <img src="./images/curry.jpg" alt="">
-                    <a href="" class="halfway-fab btn-floating pink pulse">
-                        <i class="material-icons">favorite</i>
-                    </a>
-                </div>
-                <div class="card-content">
-                    <span class="card-title">Spicy Lamb Curry</span>
-                    <p>Missing Ingredients:
-                        blah,
-                        blah,
-                        blah</p>
-                </div>
-                <div class="card-action">
-                    <a href="/recipe" class="blue-grey-text text-lighten-1">View Recipe</a>
-                    <a href="" class="blue-grey-text text-lighten-1">Remove</a>
-                </div>
-            </div>
-        </div>
-        <div class="col s12 l3">
-            <div class="card">
-                <div class="card-image">
-                    <img src="./images/curry.jpg" alt="">
-                    <a href="" class="halfway-fab btn-floating pink pulse">
-                        <i class="material-icons">favorite</i>
-                    </a>
-                </div>
-                <div class="card-content">
-                    <span class="card-title">Spicy Lamb Curry</span>
-                    <p>Missing Ingredients:
-                        blah,
-                        blah,
-                        blah</p>
-                </div>
-                <div class="card-action">
-                    <a href="/recipe" class="blue-grey-text text-lighten-1">View Recipe</a>
-                    <a href="" class="blue-grey-text text-lighten-1">Remove</a>
-                </div>
-            </div>
-        </div>
-        <div class="col s12 l3">
-            <div class="card">
-                <div class="card-image">
-                    <img src="./images/curry.jpg" alt="">
-                    <a href="" class="halfway-fab btn-floating pink pulse">
-                        <i class="material-icons">favorite</i>
-                    </a>
-                </div>
-                <div class="card-content">
-                    <span class="card-title">Spicy Lamb Curry</span>
-                    <p>Missing Ingredients:
-                        blah,
-                        blah,
-                        blah</p>
-                </div>
-                <div class="card-action">
-                    <a href="/recipe" class="blue-grey-text text-lighten-1">View Recipe</a>
-                    {{!-- The remove button will delete this recipe from the favorites section --}}
-                    <a href="" class="blue-grey-text text-lighten-1">Remove</a>
-                </div>
-            </div>
-        </div> --}}
     </div>
 </div>
