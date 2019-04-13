@@ -39,10 +39,7 @@ module.exports = function(app) {
   // Load favorites page and pass in favorites by id
   app.get("/favorites/:userid", function(req, res) {
     db.Favorites.findAll({}).then(function(dbFavorites) {
-      res.render("favorites", {
-        msg: "Welcome!",
-        examples: dbFavorites
-      });
+      res.render("favorites", dbFavorites);
     });
   });
 
