@@ -4,7 +4,7 @@ var db = require("../models");
 module.exports = function(app) {
   // Find recipe in database
   app.get("/api/recipe/:spoon", function(req, res) {
-    db.Recipe.findAll({
+    db.Recipes.findAll({
       where: {
         spoonacularId: req.params.spoon
       }
@@ -15,7 +15,8 @@ module.exports = function(app) {
 
   // Create a new example
   app.post("/api/recipe/", function(req, res) {
-    db.Recipe.create(req.body).then(function(dbRecipe) {
+    console.log(req.body);
+    db.Recipes.create(req.body).then(function(dbRecipe) {
       res.json(dbRecipe);
     });
   });
