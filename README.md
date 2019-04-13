@@ -30,6 +30,7 @@ The goal of this application is to match users with recipes based on ingredients
 + Font Awesome
 + Materialize
 + Sequelize
++ Unirest
 
 
 ## Technology
