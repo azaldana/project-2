@@ -49,20 +49,21 @@ module.exports = function(app) {
   });
 
   // Request for recipe by ID
-  // app.get("/api/spoon/recipe/:id", function() {
-  //   unirest
-  //     .get(
-  //       "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" +
-  //         req.params.id +
-  //         "/information"
-  //     )
-  //     .header(
-  //       "X-RapidAPI-Host",
-  //       "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
-  //     )
-  //     .header("X-RapidAPI-Key", process.env.SPOONKEY)
-  //     .end(function(result) {
-  //       console.log(result.status, result.headers, result.body);
-  //     });
-  // });
+  app.get("/api/spoon/recipe/:id", function() {
+    unirest
+      .get(
+        "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" +
+          req.params.id +
+          "/information"
+      )
+      .header(
+        "X-RapidAPI-Host",
+        "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
+      )
+      .header("X-RapidAPI-Key", process.env.SPOONKEY)
+      .end(function(result) {
+        res.json(result.body);
+        console.log(result);
+      });
+  });
 };

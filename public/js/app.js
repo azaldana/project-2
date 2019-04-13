@@ -18,7 +18,7 @@ function homePage() {
     pantryPage.hide();
     seafoodPage.hide();
     fruitPage.hide();
-    recipesPage.hide();
+    // recipesPage.hide();
     submit.hide(); 
 }
 
@@ -31,7 +31,8 @@ var loginCheck = {};
 // search variables
 var searching = false;
 var foundRecipes = [];
-
+var recipeObj = {};
+var ingredients = [];
 
 // The API object contains methods for each kind of request we'll make
 var API = {
@@ -146,6 +147,56 @@ var API = {
         });
     },
 
+    // Recipe Calls
+    getRecipe: function(spoon) {
+        return $.ajax({
+            url: "/api/recipe/" + spoon,
+            type: "GET",
+            success: function(response) {
+                console.log(response);
+                if (response.length !== 0) {
+                    recipeObj = {}
+                    recipeObj.spoonacularId = response.body.id;
+                    recipeObj.bigImg = response.body.image;
+                    recipeObj.title = response.body.title;
+                    recipeObj.instructions = response.body.instructions;
+                    recipeObj.prepTime = response.body.readyInMinutes;
+                    ingredients = [];
+                    for (var i = 0; i < response.body.extendedIngredients.length; i++) {
+                        var oneIng = {
+                            name: response.body.extendedIngredients[i].name,
+                            originalString: response.body.extendedIngredients[i].originalString
+                        }
+                        ingredients.push(oneIng);
+                    }
+                    API.addRecipe(recipeObj);
+                }
+            }
+        })
+    },
+    addRecipe: function(recipeObj) {
+        return $.ajax({
+            url:"/api/recipe/",
+            type: "POST",
+            data: recipeObj,
+            success: function(response) {
+                for(var i = 0; i <  ingredients.length; i++) {
+                    ingredients[i].RecipesId = response.id;
+                    API.addIngredient(ingredients[i]);
+                }
+            }
+        })
+    },
+
+    // Ingredients Calls
+    addIngredient: function(ingredientObj) { 
+        return $.ajax({
+            url: "/api/ingredients",
+            type: "POST",
+            data: ingredientObj
+        })
+    },
+
     // Search calls
     getSearch: function(userId) {
         return $.ajax({
@@ -204,6 +255,7 @@ var API = {
                     console.log(found);
                     foundRecipes.push(found);
                     API.addToSearch(found);
+                    API.searchRecipeById(found.spoonacularId);
                 }
                 console.log(foundRecipes);
                 window.location.replace("/" + localStorage.getItem("userId"));
@@ -234,7 +286,7 @@ function dairy() {
         pantryPage.hide();
         seafoodPage.hide();
         fruitPage.hide();
-        recipesPage.hide();
+        // recipesPage.hide();
         submit.show();
         heart.hide();
     })
@@ -251,7 +303,7 @@ function meat() {
         pantryPage.hide();
         seafoodPage.hide();
         fruitPage.hide();
-        recipesPage.hide();
+        // recipesPage.hide();
         submit.show();
         heart.hide();
     })
@@ -268,7 +320,7 @@ function veggie() {
         pantryPage.hide();
         seafoodPage.hide();
         fruitPage.hide();
-        recipesPage.hide();
+        // recipesPage.hide();
         submit.show();
         heart.hide();
     })
@@ -285,7 +337,7 @@ function pantry() {
         pantryPage.show();
         seafoodPage.hide();
         fruitPage.hide();
-        recipesPage.hide();
+        // recipesPage.hide();
         submit.show();
         heart.hide();
     })
@@ -302,7 +354,7 @@ function seafood() {
         pantryPage.hide();
         seafoodPage.show();
         fruitPage.hide();
-        recipesPage.hide();
+        // recipesPage.hide();
         submit.show();
         heart.hide();
     })
@@ -319,7 +371,7 @@ function fruits() {
         pantryPage.hide();
         seafoodPage.hide();
         fruitPage.show();
-        recipesPage.hide();
+        // recipesPage.hide();
         submit.show();
         heart.hide();
     })
@@ -540,3 +592,4 @@ function favorite(){
     })
 }
 favorite();
+

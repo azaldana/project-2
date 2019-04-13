@@ -8,7 +8,6 @@ module.exports = function(app) {
   // db.Recipes.findall({
   //   where: {
 
-<<<<<<< HEAD
   // route loads index with recipe values
   app.get("/:user", function(req, res) {
     db.Search.findAll({
@@ -29,19 +28,8 @@ module.exports = function(app) {
   });
 
   // Load user page and pass in a user by id
-  app.get("/user/:id", function(req, res) {
+  app.get("/user/:spoon", function(req, res) {
     db.User.findOne({
-=======
-  //   }
-  // }).then(fun)
-  //   res.render("index", {
-  //     "recipe-name": dbRecipes.title,
-  //     "recipe-image": dbRecipes.smallImg,
-  //     "recipe-missing-ingredients": dbRecipes.name
-  // recipe route loads recipe.handlebars page and passes in recipes by spoonacularId
-  app.get("/recipe", function(req, res) {
-    db.Recipes.findAll({
->>>>>>> origin
       where: {
         spoonacularId: req.params.spoon
       }

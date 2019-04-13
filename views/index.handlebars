@@ -86,11 +86,7 @@
           <div class="input-field col s12">
             <i class="material-icons prefix">lock</i>
             <input id="password_signup" type="password" class="validate">
-<<<<<<< HEAD
             <label for="password_confirm">Password</label>
-=======
-            <label for="password">Password</label>
->>>>>>> origin
           </div>
         </div>
         <div class="row">
@@ -1523,16 +1519,16 @@ This is the recipe section on the main page --}}
             {{!-- Image needs to be grabbed by the API --}}
             <img src={{smallImg}} alt="">
             {{!-- <a href="" class="halfway-fab btn-floating pink pulse"> --}}
-              <i class="material-icons">favorite</i>
-            </a> --}}
+              {{!-- <i class="material-icons">favorite</i> --}}
+            {{!-- </a> --}}
           </div>
           <div class="card-content">
             <span class="card-title">{{title}}</span>
             {{!-- <p>{{recipe-missing-ingredients}}</p> --}}
           </div>
           <div class="card-action">
-            <a href="" class="blue-grey-text save text-lighten-1">Save</a>
-            <a href="/recipe" class="blue-grey-text text-lighten-1">View Recipe</a>
+            {{!-- <a href="" class="blue-grey-text save text-lighten-1">Save</a> --}}
+            <a href="/recipe/{{spoonacularId}}" class="blue-grey-text text-lighten-1 recipeView">View Recipe</a>
           </div>
         </div>
         {{/each}}
