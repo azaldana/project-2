@@ -131,6 +131,36 @@ var API = {
         });
     },
 
+    // Search calls
+    getSearch: function(userId) {
+        return $.ajax({
+            url: "/api/search/" + userId,
+            type: "GET",
+            success: function(response) {
+                console.log(response);
+            }
+        });
+    },
+    addToSearch: function(searchObj) {
+        return $.ajax({
+            url: "/api/search",
+            type: "POST",
+            data: searchObj,
+            success: function(response) {
+                console.log(response);
+            }
+        });
+    },
+    deleteFromSearch: function(userId) {
+        return $.ajax({
+            url: "/api/search/" + userId,
+            type: "DELETE",
+            success: function(response) {
+                console.log(response);
+            }
+        });
+    },    
+
     // Spoonacular calls
     searchForIngredient: function(text) {
         return $.ajax({
@@ -149,15 +179,19 @@ var API = {
             success: function(res) {
                 console.log(res);
                 foundRecipes = [];
+                API.deleteFromSearch(localStorage.getItem("userId"));
                 for (var i = 0; i<res.length; i++) {
                     var found = {};
+                    found.UserId = localStorage.getItem("userId");
                     found.spoonacularId = res[i].id;
                     found.title = res[i].title;
                     found.smallImg = res[i].image;
                     console.log(found);
                     foundRecipes.push(found);
+                    API.addToSearch(found);
                 }
                 console.log(foundRecipes);
+                window.location.replace("/" + localStorage.getItem("userId"));
             }
         })
     },

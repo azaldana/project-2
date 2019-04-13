@@ -6,6 +6,25 @@ module.exports = function(app) {
     res.render("index");
   });
 
+  // route loads index with recipe values
+  app.get("/:user", function(req, res) {
+    db.Search.findAll({
+      where: {
+        UserId: req.params.user
+      }
+    }).then(function(data) {
+      var results = [];
+      for (var i = 0; i < data.length; i++) {
+        results.push(data[i].dataValues);
+      }
+      var hbsObject = {
+        recipe: results
+      };
+      res.render("index", hbsObject);
+      console.log(hbsObject);
+    });
+  });
+
   // Load user page and pass in a user by id
   app.get("/user/:id", function(req, res) {
     db.User.findOne({
