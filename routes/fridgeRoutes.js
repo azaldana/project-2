@@ -6,7 +6,7 @@ module.exports = function(app) {
   app.get("/api/fridge/:user", function(req, res) {
     db.Fridge.findAll({
       where: {
-        user: req.params.user
+        UserId: req.params.user
       }
     }).then(function(dbFridge) {
       res.json(dbFridge);
@@ -21,10 +21,11 @@ module.exports = function(app) {
   });
 
   // Remove from the fridge
-  app.delete("/api/fridge/:id", function(req, res) {
+  app.delete("/api/fridge/", function(req, res) {
     db.Fridge.destroy({
       where: {
-        id: req.params.id
+        name: req.body.name,
+        UserId: req.body.UserId
       }
     }).then(function(dbFridge) {
       res.json(dbFridge);
