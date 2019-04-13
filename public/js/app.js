@@ -157,8 +157,8 @@ var API = {
                 if (response.length !== 0) {
                     recipeObj = {}
                     recipeObj.spoonacularId = response.body.id;
-                    recipeObj.bigImg = response.body.image;
                     recipeObj.title = response.body.title;
+                    recipeObj.bigImg = response.body.image;
                     recipeObj.instructions = response.body.instructions;
                     recipeObj.prepTime = response.body.readyInMinutes;
                     ingredients = [];
@@ -181,7 +181,8 @@ var API = {
             data: recipeObj,
             success: function(response) {
                 for(var i = 0; i <  ingredients.length; i++) {
-                    ingredients[i].RecipesId = response.id;
+                    console.log(response.id)
+                    ingredients[i].RecipeId = response.id;
                     API.addIngredient(ingredients[i]);
                 }
             }
@@ -255,6 +256,7 @@ var API = {
                     console.log(found);
                     foundRecipes.push(found);
                     API.addToSearch(found);
+                    console.log(found.spoonacularId);
                     API.searchRecipeById(found.spoonacularId);
                 }
                 console.log(foundRecipes);
@@ -267,7 +269,23 @@ var API = {
             url: "/api/spoon/recipe/" + id,
             type: "GET",
             success: function(res) {
-                console.log(res);
+                console.log("Searched the recipe by ID");
+                recipeObj = {}
+                recipeObj.spoonacularId = res.id;
+                recipeObj.title = res.title;
+                recipeObj.bigImg = res.image;
+                recipeObj.instructions = res.instructions;
+                recipeObj.prepTime = res.readyInMinutes;
+                ingredients = [];
+                for (var i = 0; i < res.extendedIngredients.length; i++) {
+                    var oneIng = {
+                        name: res.extendedIngredients[i].name,
+                        originalString: res.extendedIngredients[i].originalString
+                    }
+                    ingredients.push(oneIng);
+                }
+                console.log(recipeObj);
+                API.addRecipe(recipeObj);
             }
         })
     }

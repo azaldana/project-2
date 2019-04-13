@@ -21,16 +21,6 @@ module.exports = function(app) {
   // });
 
   // Search recipe by ingredients
-  // http://localhost:3000/api/spoon/pasta
-  app.get("/api/user/:user", function(req, res) {
-    db.User.findAll({
-      where: {
-        name: req.params.user
-      }
-    }).then(function(dbUser) {
-      res.json(dbUser);
-    });
-  });
   app.get("/api/spoon/:list", function(req, res) {
     console.log(req.params.list);
     unirest
@@ -49,7 +39,7 @@ module.exports = function(app) {
   });
 
   // Request for recipe by ID
-  app.get("/api/spoon/recipe/:id", function() {
+  app.get("/api/spoon/recipe/:id", function(req, res) {
     unirest
       .get(
         "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" +
@@ -63,7 +53,7 @@ module.exports = function(app) {
       .header("X-RapidAPI-Key", process.env.SPOONKEY)
       .end(function(result) {
         res.json(result.body);
-        console.log(result);
+        console.log("Recipe " + req.params.id + " found.");
       });
   });
 };
