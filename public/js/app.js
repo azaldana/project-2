@@ -18,7 +18,7 @@ function homePage() {
     pantryPage.hide();
     seafoodPage.hide();
     fruitPage.hide();
-    recipesPage.hide();
+    // recipesPage.hide();
     submit.hide(); 
 }
 
@@ -27,6 +27,12 @@ homePage();
 // Log in objects
 var localUser = {};
 var loginCheck = {};
+
+// search variables
+var searching = false;
+var foundRecipes = [];
+var recipeObj = {};
+var ingredients = [];
 
 // The API object contains methods for each kind of request we'll make
 var API = {
@@ -69,8 +75,19 @@ var API = {
         url: "/api/fridge/" + userId,
         type: "GET",
         success: function(response) {
-          // check the necessary boxes
-          console.log(response);
+            localUser.fridge = "";
+            for (var i = 0; i < response.length; i ++) {
+                localUser.fridge += response[i].name;
+                localUser.fridge += "%2C"
+            }
+            localUser.fridge = localUser.fridge.substring(0, localUser.fridge.length-3);
+            localUser.fridge = localUser.fridge.replace(/ /g, "+")
+            // check the necessary boxes
+            console.log(localUser.fridge);
+            if (searching) {
+                searching = false;
+                API.searchRecipeByIng(localUser.fridge);
+            }
         }
       });
     },
@@ -130,6 +147,86 @@ var API = {
         });
     },
 
+    // Recipe Calls
+    getRecipe: function(spoon) {
+        return $.ajax({
+            url: "/api/recipe/" + spoon,
+            type: "GET",
+            success: function(response) {
+                console.log(response);
+                if (response.length !== 0) {
+                    recipeObj = {}
+                    recipeObj.spoonacularId = response.body.id;
+                    recipeObj.bigImg = response.body.image;
+                    recipeObj.title = response.body.title;
+                    recipeObj.instructions = response.body.instructions;
+                    recipeObj.prepTime = response.body.readyInMinutes;
+                    ingredients = [];
+                    for (var i = 0; i < response.body.extendedIngredients.length; i++) {
+                        var oneIng = {
+                            name: response.body.extendedIngredients[i].name,
+                            originalString: response.body.extendedIngredients[i].originalString
+                        }
+                        ingredients.push(oneIng);
+                    }
+                    API.addRecipe(recipeObj);
+                }
+            }
+        })
+    },
+    addRecipe: function(recipeObj) {
+        return $.ajax({
+            url:"/api/recipe/",
+            type: "POST",
+            data: recipeObj,
+            success: function(response) {
+                for(var i = 0; i <  ingredients.length; i++) {
+                    ingredients[i].RecipesId = response.id;
+                    API.addIngredient(ingredients[i]);
+                }
+            }
+        })
+    },
+
+    // Ingredients Calls
+    addIngredient: function(ingredientObj) { 
+        return $.ajax({
+            url: "/api/ingredients",
+            type: "POST",
+            data: ingredientObj
+        })
+    },
+
+    // Search calls
+    getSearch: function(userId) {
+        return $.ajax({
+            url: "/api/search/" + userId,
+            type: "GET",
+            success: function(response) {
+                console.log(response);
+            }
+        });
+    },
+    addToSearch: function(searchObj) {
+        return $.ajax({
+            url: "/api/search",
+            type: "POST",
+            data: searchObj,
+            success: function(response) {
+                console.log(response);
+            }
+        });
+    },
+    deleteFromSearch: function(userId) {
+        return $.ajax({
+            url: "/api/search/" + userId,
+            type: "DELETE",
+            success: function(response) {
+                console.log(response);
+            }
+        });
+    },    
+
     // Spoonacular calls
     searchForIngredient: function(text) {
         return $.ajax({
@@ -142,11 +239,26 @@ var API = {
     },
     searchRecipeByIng: function(list) {
         return $.ajax({
-            url: "/api/spoon/",
+            url: "/api/spoon/" + list,
             type: "GET",
-            data: list,
+            // data: list,
             success: function(res) {
                 console.log(res);
+                foundRecipes = [];
+                API.deleteFromSearch(localStorage.getItem("userId"));
+                for (var i = 0; i<res.length; i++) {
+                    var found = {};
+                    found.UserId = localStorage.getItem("userId");
+                    found.spoonacularId = res[i].id;
+                    found.title = res[i].title;
+                    found.smallImg = res[i].image;
+                    console.log(found);
+                    foundRecipes.push(found);
+                    API.addToSearch(found);
+                    API.searchRecipeById(found.spoonacularId);
+                }
+                console.log(foundRecipes);
+                window.location.replace("/" + localStorage.getItem("userId"));
             }
         })
     },
@@ -174,7 +286,7 @@ function dairy() {
         pantryPage.hide();
         seafoodPage.hide();
         fruitPage.hide();
-        recipesPage.hide();
+        // recipesPage.hide();
         submit.show();
         heart.hide();
     })
@@ -191,7 +303,7 @@ function meat() {
         pantryPage.hide();
         seafoodPage.hide();
         fruitPage.hide();
-        recipesPage.hide();
+        // recipesPage.hide();
         submit.show();
         heart.hide();
     })
@@ -208,7 +320,7 @@ function veggie() {
         pantryPage.hide();
         seafoodPage.hide();
         fruitPage.hide();
-        recipesPage.hide();
+        // recipesPage.hide();
         submit.show();
         heart.hide();
     })
@@ -225,7 +337,7 @@ function pantry() {
         pantryPage.show();
         seafoodPage.hide();
         fruitPage.hide();
-        recipesPage.hide();
+        // recipesPage.hide();
         submit.show();
         heart.hide();
     })
@@ -242,7 +354,7 @@ function seafood() {
         pantryPage.hide();
         seafoodPage.show();
         fruitPage.hide();
-        recipesPage.hide();
+        // recipesPage.hide();
         submit.show();
         heart.hide();
     })
@@ -259,7 +371,7 @@ function fruits() {
         pantryPage.hide();
         seafoodPage.hide();
         fruitPage.show();
-        recipesPage.hide();
+        // recipesPage.hide();
         submit.show();
         heart.hide();
     })
@@ -380,25 +492,28 @@ function loginSubmit () {
 };
 loginSubmit();
 
-// Want to sign up modal?
-function clickSearch() {
-    var searchClicked = $(".submit");
+// // Want to sign up modal?
+// function clickSearch() {
+//     var searchClicked = $(".submit");
 
-    searchClicked.on('click', function () {
-        $(".modal3").modal();
-    })
-}
+//     searchClicked.on('click', function () {
+//         $(".modal3").modal();
+//     })
+// }
 
 // Search for recipe
 function findRecipes() {
     var submitClicked = $("#submit");
 
     submitClicked.on('click', function () {
-        recipesPage.show();
-        heart.hide();
+        console.log("Searching...");
+        searching = true;
+        API.getFridge(localUser.id);
+        // recipesPage.show();
+        // heart.hide();
     })
 }
-clickSearch();
+// clickSearch();
 findRecipes();
 
 $('#modal-login').click((event) => {
@@ -477,3 +592,4 @@ function favorite(){
     })
 }
 favorite();
+

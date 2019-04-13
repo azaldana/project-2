@@ -14,7 +14,7 @@ module.exports = function(app) {
   });
 
   // Create a new example
-  app.post("/api/recipe", function(req, res) {
+  app.post("/api/recipe/", function(req, res) {
     db.Recipe.create(req.body).then(function(dbRecipe) {
       res.json(dbRecipe);
     });
