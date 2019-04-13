@@ -2,6 +2,7 @@
 module.exports = function(sequelize, DataTypes) {
   var Recipes = sequelize.define("Recipes", {
     spoonacularId: DataTypes.INTEGER,
+    title: DataTypes.STRING,
     smallImg: DataTypes.STRING,
     bigImg: DataTypes.STRING,
     instructions: DataTypes.TEXT,
