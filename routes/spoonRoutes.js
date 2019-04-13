@@ -38,7 +38,7 @@ module.exports = function(app) {
   });
 
   // Request for recipe by ID
-  app.get("/api/spoon/:id", function() {
+  app.get("/api/spoon/recipe/:id", function() {
     unirest
       .get(
         "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" +

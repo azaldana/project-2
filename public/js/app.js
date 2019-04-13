@@ -1,6 +1,3 @@
-require("dotenv").config();
-var unirest = require("unirest");
-
 // Ingredient category elements
 var dairyPage = $(".dairy");
 var meatPage = $(".meat");
@@ -120,48 +117,33 @@ var API = {
 
     // Spoonacular calls
     searchForIngredient: function(text) {
-        unirest
-            .get(
-                "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/ingredients/autocomplete?number=10&intolerances=egg&query=" + text
-            )
-            .header(
-                "X-RapidAPI-Host",
-                "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
-            )
-            .header("X-RapidAPI-Key", process.env.SPOONKEY)
-            .end(function(result) {
-                console.log(result.status, result.headers, result.body);
-            });
+        return $.ajax({
+            url: "/api/spoon/tiny/" + text,
+            type: "GET",
+            success: function(res) {
+                console.log(res);
+            }
+        })
     },
-    searchRecipeByIng: function(text) {
-        unirest
-            .get(
-                "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=1&ignorePantry=false&ingredients=" + text
-            )
-            .header(
-                "X-RapidAPI-Host",
-                "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
-            )
-            .header("X-RapidAPI-Key", process.env.SPOONKEY)
-            .end(function(result) {
-                console.log(result.status, result.headers, result.body);
-            });
+    searchRecipeByIng: function(list) {
+        return $.ajax({
+            url: "/api/spoon/",
+            type: "GET",
+            data: list,
+            success: function(res) {
+                console.log(res);
+            }
+        })
     },
     searchRecipeById: function(id) {
-        unirest
-            .get(
-                "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" + id + "/information"
-            )
-            .header(
-                "X-RapidAPI-Host",
-                "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
-            )
-            .header("X-RapidAPI-Key", process.env.SPOONKEY)
-            .end(function(result) {
-                console.log(result.status, result.headers, result.body);
-            });
+        return $.ajax({
+            url: "/api/spoon/recipe/" + id,
+            type: "GET",
+            success: function(res) {
+                console.log(res);
+            }
+        })
     }
-
 };
 
 // Hide menues until selected
@@ -395,7 +377,7 @@ function loginSubmit () {
 };
 loginSubmit();
 
-
+// Want to sign up modal?
 function clickSearch() {
     var searchClicked = $(".submit");
 
@@ -404,6 +386,7 @@ function clickSearch() {
     })
 }
 
+// Search for recipe
 function findRecipes() {
     var submitClicked = $("#submit");
 
