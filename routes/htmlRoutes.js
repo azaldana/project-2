@@ -1,50 +1,29 @@
-var db = require("../models");
-
 module.exports = function(app) {
-  // route loads index.handlebars
+  // route loads index.handlebars page
   app.get("/", function(req, res) {
     res.render("index");
   });
 
-  // Load user page and pass in a user by id
-  app.get("/user/:id", function(req, res) {
-    db.User.findOne({
-      where: {
-        id: req.params.id
-      }
-    }).then(function(dbUser) {
-      res.render("user", dbUser);
-    });
-  });
-
-  // Load recipe page and pass in a recipe by id
+  // recipe route loads recipe.handlebars page and passes in recipes by spoonacularId
   app.get("/recipe/:spoon", function(req, res) {
-    // db.Recipe.findAll({
-    //   where: {
-    //     spoonacularId: req.params.spoon
-    //   }
-    // }).then(function(dbRecipe) {
-    // res.render("recipes", dbRecipe);
     res.render("recipes", {
-      spoonacularId: 123,
-      smallImg: "fgh",
-      bigImg: "ghj",
-      instructions: "lkdhskljf",
-      preptime: 34,
-      ingredients: []
+      "ingredients-list": ingredients,
+      "recipe-name": title,
+      "recipe-image": bigImg,
+      "recipe-instructions": instructions
     });
-    // });
   });
 
-  // Load favorites page and pass in favorites by id
+  // favorites route loads favorites.handlebars page and passes in favorites by user
   app.get("/favorites/:userid", function(req, res) {
-    db.Favorites.findAll({}).then(function(dbFavorites) {
-      res.render("favorites", dbFavorites);
+    res.render("favorites", {
+      "recipe-image": smallImg,
+      "recipe-name": title,
+      "recipe-missing-ingredients": []
     });
   });
-
-  // Render 404 page for any unmatched routes
-  // app.get("*", function(req, res) {
+  //   Render 404 page for any unmatched routes
+  //   app.get("*", function(req, res) {
   //   res.render("404");
   // });
 };
