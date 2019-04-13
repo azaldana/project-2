@@ -38,10 +38,10 @@ module.exports = function(app) {
 
   // Load favorites page and pass in favorites by id
   app.get("/favorites/:userid", function(req, res) {
-    db.Fridge.findAll({}).then(function(dbFridge) {
-      res.render("index", {
+    db.Favorites.findAll({}).then(function(dbFavorites) {
+      res.render("favorites", {
         msg: "Welcome!",
-        examples: dbFridge
+        examples: dbFavorites
       });
     });
   });
