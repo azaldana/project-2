@@ -41,6 +41,10 @@ main {
     text-align: center;
 }
 
+.about-text {
+    text-align: left;
+}
+
 .about-content {
     width: 60%;
     margin: 0 auto;
