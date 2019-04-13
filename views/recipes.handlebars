@@ -9,36 +9,118 @@
     </ul>
 </nav>
 
-<div class="something">
-    <div class="row">
-        <div class="col l3 listSection">
-            {{!-- Ingredient partial will be placed here --}}
+  <div class="something">
+        <div class="row">
+            <div class="col l3 listSection">
+                <h5>List of Ingredients</h5>
+                <ul>
+                    <li>
+                        <label>
+                            <input type="checkbox" />
+                            <span>2 Tbsp vegetable oil</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox" />
+                            <span>1 large onion, chopped (1 1/2 to 2 cups)</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox" />
+                            <span>1/2 red bell pepper, chopped</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox" />
+                            <span>2 garlic cloves, minced</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox" />
+                            <span>2 Tbsp fresh minced ginger</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox" />
+                            <span>2 Tbsp yellow curry powder</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox" />
+                            <span>1/2 teaspoon ground cumin</span>
+                        </label>
+                    </li>
+                    
+                    <li>
+                        <label>
+                            <input type="checkbox" />
+                            <span>2 mangos, peeled and diced</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox" />
+                            <span>2 Tbsp cider vinegar or white vinegar</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox" />
+                            <span>1  13.5-ounce can coconut milk</span>
+                        </label>
+                    </li>
+                     <li>
+                        <label>
+                            <input type="checkbox" />
+                            <span>1 1/4 pound skinless boneless chicken thighs or breasts, cut into 1-inch pieces</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox" />
+                            <span>Salt and pepper</span>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            <div class="col l1"></div>
+            <div class="col l8 recipeSection">
+                <h2>Mango Chicken Curry</h2>
+                <img src="./images/curry.jpg" width="600">
+                <br><br>
+                <ul>
+                    <h4>Instructions:</h4>
+                    <li>1. Cook onions, bell pepper, garlic, ginger, spices: Heat oil in a large sauté pan over medium heat. Add onions and bell pepper cook, stirring occasionally, until soft, about 5 minutes.
 
-            {{ingredients-list}}
-            
-        </div>
-        <div class="col l1"></div>
-        <div class="col l8 recipeSection">
-            {{#each recipe}}
+Add the garlic and ginger and cook for another minute.
 
-            <h2>{{recipe-name}}</h2>
-             
-            <img src={{recipe-image}} width="600">
-            <br><br>
+Add the curry powder and cumin, cook for a few more minutes. The spices will absorb some of the oil, so if anything begins to stick too much to the bottom of the pan, add a little more oil to the pan.</li><br>
+                    <li>2. Add the vinegar, coconut milk, and one of the two chopped mangoes to the pan. Increase the heat and bring to a boil, then lower the heat to maintain a low simmer for about 15 minutes, stirring occasionally.</li><br>
+                    <li>3. Purée sauce: Remove pan from heat. Scoop the sauce into a blender. Purée the sauce, pulsing until smooth. Return the sauce to the pan.</li><br>
+                    <li>4. Purée sauce: Remove pan from heat. Scoop the sauce into a blender. Purée the sauce, pulsing until smooth. Return the sauce to the pan.</li><br>
+                    <li>5. Add remaining chopped mango to the pan. Stir in the cream, if using. Let cook at a very low temperature for another minute or two, uncovered. Do not let boil! Or the cream may curdle.</li><br>
+                    <li>6. Adjust seasonings: If a little too sweet, add a little more vinegar. If not sweet enough, you can add a dash of sugar. Add salt and pepper to taste.
 
-            <ul>
-                <h4>Instructions:</h4>
-                <li>{{recipe-instructions}}</li><br>
-            </ul>
-
-            <button class="btn waves-effect waves-light z-depth-0" id="submit" type="submit" name="action">Add to Favorites
-                <i class="material-icons right">favorite</i>
-            </button>
-            {{/each}}
-
+                        Serve over rice. Garnish with cilantro.
+                    </li><br>
+                </ul>
+                {{!-- <button class="btn waves-effect waves-light z-depth-0" id="submit" type="submit"
+                    name="action">Leave a Review
+                    <i class="material-icons right">send</i>
+                </button> --}}
+                <button class="btn waves-effect waves-light z-depth-0" id="favorite" type="submit"
+                    name="action">Add to Favorites
+                    <i class="material-icons right">favorite</i>
+                </button>
+            </div>
         </div>
     </div>
-</div>
 
 <br><br>
 <footer class="page-footer footer">
