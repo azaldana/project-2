@@ -1,3 +1,4 @@
+
 // Ingredient category elements
 var dairyPage = $(".dairy");
 var meatPage = $(".meat");
@@ -8,6 +9,20 @@ var fruitPage = $(".fruit");
 var recipesPage = $(".recipe-content");
 var submit = $(".submit");
 var heart = $(".heart");
+
+// Hide menues until selected
+function homePage() {
+    dairyPage.hide();
+    meatPage.hide();
+    veggiesPage.hide();
+    pantryPage.hide();
+    seafoodPage.hide();
+    fruitPage.hide();
+    recipesPage.hide();
+    submit.hide(); 
+}
+
+homePage();
 
 // Log in objects
 var localUser = {};
@@ -206,19 +221,7 @@ var API = {
     }
 };
 
-// Hide menues until selected
-function homePage() {
-    dairyPage.hide();
-    meatPage.hide();
-    veggiesPage.hide();
-    pantryPage.hide();
-    seafoodPage.hide();
-    fruitPage.hide();
-    recipesPage.hide();
-    submit.hide(); 
-}
 
-homePage();
 
 // The following expand various menus depending on what the user selects
 function dairy() {
@@ -463,13 +466,19 @@ findRecipes();
 
 $('#modal-login').click((event) => {
     $('#search').modal();
-    $('#login').modal();
+    $('#login').modal({onCloseEnd:function(){
+        console.log("closeing modal login");
+        $('body').css('overflow', '');
+    }});
     $('#login').modal('open');
 })
 
 $('#modal-signup').click((event) => {
     $('#search').modal();
-    $('#signup').modal();
+    $('#signup').modal({onCloseEnd:function(){
+        console.log("closeing modal login");
+        $('body').css('overflow', '');
+    }});
     $('#signup').modal('open');
 })
 

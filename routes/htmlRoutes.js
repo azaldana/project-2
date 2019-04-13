@@ -1,11 +1,14 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // route loads index.handlebars
+  // route loads index.handlebars page
   app.get("/", function(req, res) {
     res.render("index");
   });
+  // db.Recipes.findall({
+  //   where: {
 
+<<<<<<< HEAD
   // route loads index with recipe values
   app.get("/:user", function(req, res) {
     db.Search.findAll({
@@ -28,42 +31,38 @@ module.exports = function(app) {
   // Load user page and pass in a user by id
   app.get("/user/:id", function(req, res) {
     db.User.findOne({
+=======
+  //   }
+  // }).then(fun)
+  //   res.render("index", {
+  //     "recipe-name": dbRecipes.title,
+  //     "recipe-image": dbRecipes.smallImg,
+  //     "recipe-missing-ingredients": dbRecipes.name
+  // recipe route loads recipe.handlebars page and passes in recipes by spoonacularId
+  app.get("/recipe", function(req, res) {
+    db.Recipes.findAll({
+>>>>>>> origin
       where: {
-        id: req.params.id
+        spoonacularId: req.params.spoon
       }
-    }).then(function(dbUser) {
-      res.render("user", dbUser);
+    }).then(function(dbRecipes) {
+      res.render("recipes", {
+        "ingredients-list": dbRecipes.ingredients,
+        "recipe-name": dbRecipes.title,
+        "recipe-image": dbRecipes.bigImg,
+        "recipe-instructions": dbRecipes.instructions
+      });
     });
   });
 
-  // Load recipe page and pass in a recipe by id
-  app.get("/recipe/:spoon", function(req, res) {
-    // db.Recipe.findAll({
-    //   where: {
-    //     spoonacularId: req.params.spoon
-    //   }
-    // }).then(function(dbRecipe) {
-    // res.render("recipes", dbRecipe);
-    res.render("recipes", {
-      spoonacularId: 123,
-      smallImg: "fgh",
-      bigImg: "ghj",
-      instructions: "lkdhskljf",
-      preptime: 34,
-      ingredients: []
-    });
-    // });
-  });
-
-  // Load favorites page and pass in favorites by id
-  app.get("/favorites/:userid", function(req, res) {
+  // favorites route loads favorites.handlebars page and passes in favorites by user
+  app.get("/favorites", function(req, res) {
     db.Favorites.findAll({}).then(function(dbFavorites) {
-      res.render("favorites", dbFavorites);
+      res.render("favorites", {
+        "recipe-name": dbFavorites.title,
+        "recipe-image": dbFavorites.smallImg,
+        "recipe-missing-ingredients": dbFavorites.name
+      });
     });
   });
-
-  // Render 404 page for any unmatched routes
-  // app.get("*", function(req, res) {
-  //   res.render("404");
-  // });
 };
