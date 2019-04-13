@@ -194,6 +194,15 @@ input.valid[type=text]:not(.browser-default){
     color: white;
 }
 
+.card {
+    min-height: 450px;
+    height: 450px;
+}
+
+.card-content {
+    height: 164px;
+}
+
 /* Recipe Full Page */
 
 #recipePageIcon {
@@ -234,20 +243,18 @@ input.valid[type=text]:not(.browser-default){
     margin-left: 50px;
 }
 
-#favorite {
-    /* margin-left: 50px; */
+/* #favorite {
     border: 1px solid #FFAB00;
     background-color: transparent;
     color: black;
-} 
+}  */
 
-#favorite:hover {
-    /* border: 1px solid #FFAB00; */
+/* #favorite:hover {
     background-color: #FFAB00;
     color: white;
 }
 
-/* Favorite Section Full Page */
+
 
 .favoriteSection {
     width: 90%;
@@ -258,7 +265,7 @@ input.valid[type=text]:not(.browser-default){
 .favoriteSection h2 {
     font-family: 'Rajdhani', sans-serif;
     margin-top: 75px;
-}
+} */
 
 /* Modal Pop Up Windows */
 
@@ -293,15 +300,23 @@ input.valid[type=text]:not(.browser-default){
     background-color: #ffab00;
 }
 
-#user_name {
+#user_name_login {
     width: 65%;
 }
 
-#email {
+#password_login {
     width: 65%;
 }
 
-#password {
+#user_name_signup {
+    width: 65%;
+}
+
+#password_signup {
+    width: 65%;
+}
+
+#password_confirm {
     width: 65%;
 }
 
