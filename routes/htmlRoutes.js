@@ -1,5 +1,3 @@
-var db = require("../models");
-
 module.exports = function(app) {
   // route loads index.handlebars page
   app.get("/", function(req, res) {
@@ -9,6 +7,7 @@ module.exports = function(app) {
   // recipe route loads recipe.handlebars page and passes in recipes by spoonacularId
   app.get("/recipe/:spoon", function(req, res) {
     res.render("recipes", {
+      "ingredients-list": ingredients,
       "recipe-name": title,
       "recipe-image": bigImg,
       "recipe-instructions": instructions
