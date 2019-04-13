@@ -1,4 +1,3 @@
-
 // persisitent checks
 
 // What happens when you search for an ingredient
@@ -16,5 +15,4 @@
 $(document).ready(function() {
   // What happens when you first get to the page
   console.log(localStorage.getItem("userId"));
-
 });
