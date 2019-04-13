@@ -235,7 +235,7 @@ input.valid[type=text]:not(.browser-default){
 }
 
 #favorite {
-    margin-left: 50px;
+    /* margin-left: 50px; */
     border: 1px solid #FFAB00;
     background-color: transparent;
     color: black;
