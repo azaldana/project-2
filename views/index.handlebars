@@ -2,27 +2,27 @@
 <header>
   <nav class="nav-wrapper transparent z-depth-0">
     {{!-- <div class="container"> --}}
-      <a href="#" class="sidenav-trigger" data-target="mobile-menu">
-        <i class="material-icons white-text">menu</i></a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
+    <a href="#" class="sidenav-trigger" data-target="mobile-menu">
+      <i class="material-icons white-text">menu</i></a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
 
 
-        {{!-- When Login Button or Sign Up button is pressed, the data goes to the database and the header then shows the "Fridge", "Favorites" and "Log Out" Buttons --}}
+      {{!-- When Login Button or Sign Up button is pressed, the data goes to the database and the header then shows the "Fridge", "Favorites" and "Log Out" Buttons --}}
 
-        <li><a href="#login" class="white-text login valign-wrapper modal-trigger">Log In</a></li>
-        <li><a href="#signup" class="white-text signup valign-wrapper modal-trigger">Sign Up</a></li>
-        {{!-- <li><a href="#" class="white-text fridge valign-wrapper">Fridge</a></li> --}}
-        <li><a href="/favorites" class="white-text favorites valign-wrapper">Favorites</a></li>
-        {{!-- <li><a href="#" class="white-text logout valign-wrapper">Log Out</a></li> --}}
-        <li><a href="#" class="white-text valign-wrapper"></a></li>
-      </ul>
+      <li><a href="#login" class="white-text login valign-wrapper modal-trigger">Log In</a></li>
+      <li><a href="#signup" class="white-text signup valign-wrapper modal-trigger">Sign Up</a></li>
+      {{!-- <li><a href="#" class="white-text fridge valign-wrapper">Fridge</a></li> --}}
+      <li><a href="/favorites" class="white-text favorites valign-wrapper">Favorites</a></li>
+      {{!-- <li><a href="#" class="white-text logout valign-wrapper">Log Out</a></li> --}}
+      <li><a href="#" class="white-text valign-wrapper"></a></li>
+    </ul>
 
-      <ul class="sidenav grey lighten-2" id="mobile-menu">
-        <li><a href="#login" class="blue-grey-text login text-darken-4 modal-trigger">Log In</a></li>
-        <li><a href="#signup" class="blue-grey-text signup text-darken-4 modal-trigger">Sign Up</a></li>
-        <li><a href="#" class="blue-grey-text text-darken-4">Fridge</a></li>
-        <li><a href="/favorites" class="amber-accent-4">Favorites</a></li>
-      </ul>
+    <ul class="sidenav grey lighten-2" id="mobile-menu">
+      <li><a href="#login" class="blue-grey-text login text-darken-4 modal-trigger">Log In</a></li>
+      <li><a href="#signup" class="blue-grey-text signup text-darken-4 modal-trigger">Sign Up</a></li>
+      <li><a href="#" class="blue-grey-text text-darken-4">Fridge</a></li>
+      <li><a href="/favorites" class="amber-accent-4">Favorites</a></li>
+    </ul>
     {{!-- </div> --}}
   </nav>
 
@@ -126,13 +126,19 @@
     <h2>About</h2>
     <img src="./images/mish-mash-icon-yellow-new.png" width="50" alt="Icon" id="icon">
     <br><br>
-     <p class="subhead">Perfect for when your fridge gets a little strange...
-      </p>
-    <p class="about-text">All of us have been there one time or another, staring into the pantry or refrigerator and thinking, “There’s nothing to eat in this house.” Although you may feel like your options are limited, generally people have 3 weeks worth of meals in their household. So how can you make great meals with those random ingredients  you may ask? Well worry no more, because Mish Mash is here to make your life much easier. 
+    <p class="subhead">Perfect for when your fridge gets a little strange...
+    </p>
+    <p class="about-text">All of us have been there one time or another, staring into the pantry or refrigerator and
+      thinking, “There’s nothing to eat in this house.” Although you may feel like your options are limited, generally
+      people have 3 weeks worth of meals in their household. So how can you make great meals with those random
+      ingredients you may ask? Well worry no more, because Mish Mash is here to make your life much easier.
       <br><br>
-      Mish Mash is an ingredient-to-recipe application that takes in user input and provides them with the best recipe per their ingredients. Whether you’re looking for toppings for your avocado toast or what to do with that bag of rice, Mish Mash can assist in providing you with a variety of recipes. 
+      Mish Mash is an ingredient-to-recipe application that takes in user input and provides them with the best recipe
+      per their ingredients. Whether you’re looking for toppings for your avocado toast or what to do with that bag of
+      rice, Mish Mash can assist in providing you with a variety of recipes.
       <br><br>
-      And its easy! All you have to do is select a category from the refrigerator below and select the ingredients you have and search for a recipe! See easy. We’re here to help. So let’s get cooking!
+      And its easy! All you have to do is select a category from the refrigerator below and select the ingredients you
+      have and search for a recipe! See easy. We’re here to help. So let’s get cooking!
     </p>
   </div>
 </div>
@@ -1511,15 +1517,17 @@ This is the recipe section on the main page --}}
 
 
     <div class="row">
-      
+      <div class ="col l12">
+        <div class="row">
+      {{#each recipe}}
       <div class="col s12 l4">
-        {{#each recipe}}
+
         <div class="card">
           <div class="card-image">
             {{!-- Image needs to be grabbed by the API --}}
             <img src={{smallImg}} alt="">
             {{!-- <a href="" class="halfway-fab btn-floating pink pulse"> --}}
-              {{!-- <i class="material-icons">favorite</i> --}}
+            {{!-- <i class="material-icons">favorite</i> --}}
             {{!-- </a> --}}
           </div>
           <div class="card-content">
@@ -1531,11 +1539,13 @@ This is the recipe section on the main page --}}
             <a href="/recipe/{{spoonacularId}}" class="blue-grey-text text-lighten-1 recipeView">View Recipe</a>
           </div>
         </div>
-        {{/each}}
-      </div>
 
+      </div>
+      {{/each}}
+        </div>
+      </div>
       {{!-- The next 6 results pulled from the API will be shown once the "submit" button is clicked --}}
-      <button class="btn waves-effect waves-light z-depth-0" id="seeMore" type="submit" name="action">See More
+      <button class="btn waves-effect col 12 waves-light z-depth-0" id="seeMore" type="submit" name="action">See More
         Results
         <i class="material-icons right">send</i>
       </button>
