@@ -28,6 +28,7 @@ require("./routes/htmlRoutes")(app);
 require("./routes/ingredientsRoutes")(app);
 require("./routes/recipesRoutes")(app);
 require("./routes/usersRoutes")(app);
+require("./routes/spoonRoutes")(app);
 
 
 var syncOptions = { force: false };

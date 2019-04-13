@@ -13,6 +13,11 @@ var heart = $(".heart");
 var localUser = {};
 var loginCheck = {};
 
+// search variables
+var searching = false;
+var foundRecipes = [];
+
+
 // The API object contains methods for each kind of request we'll make
 var API = {
     // User calls
@@ -54,8 +59,19 @@ var API = {
         url: "/api/fridge/" + userId,
         type: "GET",
         success: function(response) {
-          // check the necessary boxes
-          console.log(response);
+            localUser.fridge = "";
+            for (var i = 0; i < response.length; i ++) {
+                localUser.fridge += response[i].name;
+                localUser.fridge += "%2C"
+            }
+            localUser.fridge = localUser.fridge.substring(0, localUser.fridge.length-3);
+            localUser.fridge = localUser.fridge.replace(/ /g, "+")
+            // check the necessary boxes
+            console.log(localUser.fridge);
+            if (searching) {
+                searching = false;
+                API.searchRecipeByIng(localUser.fridge);
+            }
         }
       });
     },
@@ -127,11 +143,21 @@ var API = {
     },
     searchRecipeByIng: function(list) {
         return $.ajax({
-            url: "/api/spoon/",
+            url: "/api/spoon/" + list,
             type: "GET",
-            data: list,
+            // data: list,
             success: function(res) {
                 console.log(res);
+                foundRecipes = [];
+                for (var i = 0; i<res.length; i++) {
+                    var found = {};
+                    found.spoonacularId = res[i].id;
+                    found.title = res[i].title;
+                    found.smallImg = res[i].image;
+                    console.log(found);
+                    foundRecipes.push(found);
+                }
+                console.log(foundRecipes);
             }
         })
     },
@@ -377,25 +403,28 @@ function loginSubmit () {
 };
 loginSubmit();
 
-// Want to sign up modal?
-function clickSearch() {
-    var searchClicked = $(".submit");
+// // Want to sign up modal?
+// function clickSearch() {
+//     var searchClicked = $(".submit");
 
-    searchClicked.on('click', function () {
-        $(".modal3").modal();
-    })
-}
+//     searchClicked.on('click', function () {
+//         $(".modal3").modal();
+//     })
+// }
 
 // Search for recipe
 function findRecipes() {
     var submitClicked = $("#submit");
 
     submitClicked.on('click', function () {
-        recipesPage.show();
-        heart.hide();
+        console.log("Searching...");
+        searching = true;
+        API.getFridge(localUser.id);
+        // recipesPage.show();
+        // heart.hide();
     })
 }
-clickSearch();
+// clickSearch();
 findRecipes();
 
 $('#modal-login').click((event) => {
