@@ -55,6 +55,10 @@ main {
     text-align: center;
 }
 
+.about-text{
+    text-align: left;
+}
+
 /* Refrigerator Section */
 
 .category {
