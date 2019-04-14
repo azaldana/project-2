@@ -18,7 +18,7 @@ function homePage() {
     pantryPage.hide();
     seafoodPage.hide();
     fruitPage.hide();
-    recipesPage.hide();
+    // recipesPage.hide();
     submit.hide(); 
 }
 
