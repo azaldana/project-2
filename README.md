@@ -13,9 +13,7 @@ The goal of this application is to match users with recipes based on ingredients
 
 + In the Regrigerator, user will choose from the categories of ingredients. Based on the box versus checkmark, the ingredient choice will be added/removed from the User's ID in the database. User has the ability to add other ingredients in the input field.
 
-+ Once all chosen ingredients have been checked or added, User will click 'Search For Recipes' button. Six recipes will display, with the option to 'See More Results.' User can then choose to View Recipe.
-
-+ View Recipe link will connect user with full recipe breakdown.
++ Once all chosen ingredients have been checked or added, User will click 'Search For Recipes' button. Six recipes will display, with the option to 'See More Results.' 
 
 
 

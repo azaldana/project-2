@@ -195,8 +195,8 @@ input.valid[type=text]:not(.browser-default){
 }
 
 .card {
-    min-height: 450px;
-    height: 450px;
+    min-height: 350px;
+    height: 350px;
 }
 
 .card-content {
