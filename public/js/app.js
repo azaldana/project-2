@@ -18,7 +18,7 @@ function homePage() {
     pantryPage.hide();
     seafoodPage.hide();
     fruitPage.hide();
-    // recipesPage.hide();
+    recipesPage.hide();
     submit.hide(); 
 }
 
@@ -397,21 +397,43 @@ function fruits() {
 fruits();
 
 // Set up temp user when user arrives to page
+// function setTemp() {
+//     if (localStorage.getItem("userId") === null) {
+//         // Create temp user
+//         var tempUser = {
+//           name: "temp",
+//           password: ""
+//         };
+//         localUser.name = tempUser.name;
+//         console.log(tempUser);
+//         // User post
+//         API.createUser(tempUser);
+//     } else {
+//         localUser.id = localStorage.getItem("userId");
+//         API.getFridge(localUser.id);
+//     }
+// }
 function setTemp() {
-    if (localStorage.getItem("userId") === null) {
+    if (!localUser.name) {
         // Create temp user
         var tempUser = {
-          name: "temp",
-          password: ""
-        };
+            name: "temp",
+            password: ""
+          };
+        if(localStorage.getItem("userId")) {
+            localUser.id = localStorage.getItem("userId");
+        } else {
+            API.createUser(tempUser);
+        }
         localUser.name = tempUser.name;
         console.log(tempUser);
         // User post
-        API.createUser(tempUser);
-    } else {
-        localUser.id = localStorage.getItem("userId");
-        API.getFridge(localUser.id);
-    }
+    } 
+    // else {
+    //     localUser.id = localStorage.getItem("userId");
+    // }
+    API.getFridge(localUser.id);
+
 }
 setTemp();
 
