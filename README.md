@@ -2,7 +2,7 @@
 
 An ingredients-to-recipe application that uses MySQL, Node, Express, Handlebars and Sequelize, deployed on Heroku. 
 
-[Mish Mash Link](http://immense-ravine-59091.herokuapp.com/ "project-2 Link")
+[Mish Mash Link](https://sleepy-forest-12197.herokuapp.com/ "project-2 Link")
 
 
 ## Description
